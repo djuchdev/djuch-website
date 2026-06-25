@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Stat } from '@/types'
 import { VinylIcon, GlobeIcon, FilmIcon, MicIcon } from '@/components/ui/Icons'
 
@@ -8,15 +9,26 @@ const iconMap = {
   mic:   MicIcon,
 }
 
-export default function StatItem({ headline, description, icon }: Stat) {
+export default function StatItem({ headline, description, icon, iconImage }: Stat) {
   const Icon = iconMap[icon]
 
   return (
     <div className="flex items-start gap-5 px-7 py-12 border-r border-white/5 last:border-r-0">
 
-      {/* Gold circle icon */}
-      <div className="flex-shrink-0 w-16 h-16 rounded-full border border-gold text-gold flex items-center justify-center">
-        <Icon />
+      <div className="flex-shrink-0 w-16 h-16 rounded-full border border-gold flex items-center justify-center overflow-hidden">
+        {iconImage ? (
+          <Image
+            src={iconImage}
+            alt={headline}
+            width={64}
+            height={64}
+            className="object-cover w-full h-full"
+          />
+        ) : (
+          <span className="text-gold">
+            <Icon />
+          </span>
+        )}
       </div>
 
       <div>

@@ -21,4 +21,5 @@ export type Stat = {
   headline: string
   description: string
   icon: 'vinyl' | 'globe' | 'film' | 'mic'
+  iconImage?: string | null
 }

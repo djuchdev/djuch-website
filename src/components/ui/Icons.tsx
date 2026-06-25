@@ -55,8 +55,9 @@ export function VinylIcon() {
   return (
     <svg {...props}>
       <circle cx="12" cy="12" r="9" />
-      <circle cx="12" cy="12" r="3" />
-      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="5.5" />
+      <circle cx="12" cy="12" r="2" />
+      <circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none" />
     </svg>
   )
 }
@@ -66,7 +67,9 @@ export function GlobeIcon() {
     <svg {...props}>
       <circle cx="12" cy="12" r="9" />
       <line x1="3" y1="12" x2="21" y2="12" />
-      <path d="M12 3a14 14 0 0 1 4 9 14 14 0 0 1-4 9 14 14 0 0 1-4-9 14 14 0 0 1 4-9z" />
+      <ellipse cx="12" cy="12" rx="4.5" ry="9" />
+      <path d="M4.2 7.5 Q12 5 19.8 7.5" />
+      <path d="M4.2 16.5 Q12 19 19.8 16.5" />
     </svg>
   )
 }
@@ -88,10 +91,11 @@ export function FilmIcon() {
 export function MicIcon() {
   return (
     <svg {...props}>
-      <rect x="9" y="2" width="6" height="11" rx="3" />
-      <path d="M5 10a7 7 0 0 0 14 0" />
-      <line x1="12" y1="17" x2="12" y2="22" />
-      <line x1="8" y1="22" x2="16" y2="22" />
+      {/* Handheld mic, tilted ~45° upper-right */}
+      <g transform="rotate(45 12 12)">
+        <ellipse cx="12" cy="6.5" rx="3.5" ry="4.5" />
+        <rect x="10.5" y="10.5" width="3" height="9" rx="1.5" fill="none" />
+      </g>
     </svg>
   )
 }
