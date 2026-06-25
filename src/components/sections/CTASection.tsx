@@ -23,7 +23,7 @@ export default function CTASection() {
                 fill
                 alt={ctaSection.imageAlt}
                 className="object-cover"
-                style={{ objectPosition: 'center 18%' }}
+                style={{ objectPosition: '65% 15%' }}
                 priority
               />
               {/* Dissolve into text column */}
