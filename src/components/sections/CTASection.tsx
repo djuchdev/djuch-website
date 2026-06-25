@@ -10,7 +10,7 @@ export default function CTASection() {
       <div
         className="hidden lg:grid"
         style={{
-          gridTemplateColumns: '35% 1fr 25%',
+          gridTemplateColumns: '33% 1fr 32%',
           minHeight: '640px',
         }}
       >
@@ -107,9 +107,9 @@ export default function CTASection() {
               <Image
                 src={ctaSection.signature}
                 alt="DJ UCH signature"
-                width={320}
-                height={160}
-                className="w-full max-w-[280px] h-auto"
+                width={480}
+                height={240}
+                className="w-full max-w-[420px] h-auto"
               />
             </div>
           ) : (
