@@ -38,47 +38,63 @@ export default function CTASection() {
           style={{
             paddingTop:    'clamp(72px, 9vw, 120px)',
             paddingBottom: 'clamp(72px, 9vw, 120px)',
-            paddingLeft:   'clamp(40px, 4vw, 72px)',
-            paddingRight:  'clamp(40px, 4vw, 72px)',
+            paddingLeft:   'clamp(40px, 4.5vw, 80px)',
+            paddingRight:  'clamp(40px, 4.5vw, 80px)',
           }}
         >
           {/* Eyebrow */}
           <p
-            className="text-gold font-semibold uppercase"
-            style={{ fontSize: '0.6rem', letterSpacing: '0.38em', marginBottom: '1.75rem' }}
+            className="text-gold uppercase"
+            style={{
+              fontSize: '17px',
+              fontWeight: 500,
+              letterSpacing: '0.16em',
+              lineHeight: 1.2,
+              marginBottom: '1.25rem',
+            }}
           >
             {ctaSection.eyebrow}
           </p>
 
-          {/* Headline — single commanding line */}
+          {/* Headline — large light-weight, luxury typographic statement */}
           <h2
-            className="font-display font-extrabold uppercase text-white"
+            className="font-sans font-light uppercase"
             style={{
-              fontSize: 'clamp(1.8rem, 2.8vw, 2.8rem)',
-              lineHeight: 0.95,
-              letterSpacing: '-0.01em',
+              fontSize: 'clamp(2.6rem, 4vw, 3.5rem)',
+              fontWeight: 300,
+              lineHeight: 1.07,
+              letterSpacing: 0,
+              color: '#F4F4F4',
             }}
           >
             {ctaSection.headline}
           </h2>
 
-          {/* Gold rule — visual breath between headline and copy */}
+          {/* Gold rule */}
           <div
             className="bg-gold/45"
-            style={{ height: '1px', width: '3rem', marginTop: '2.25rem', marginBottom: '1.75rem' }}
+            style={{ height: '1px', width: '3rem', marginTop: '2rem', marginBottom: '1.75rem' }}
           />
 
           {/* Body copy */}
           <p
-            className="text-zinc-400"
-            style={{ fontSize: '0.875rem', lineHeight: 1.9, maxWidth: '22rem' }}
+            style={{
+              fontSize: '21px',
+              fontWeight: 400,
+              lineHeight: 1.55,
+              color: '#D3D3D3',
+            }}
           >
             {ctaSection.body}
           </p>
 
-          {/* Button — isolated with generous top margin */}
-          <div style={{ marginTop: '3.5rem' }}>
-            <Button href={ctaSection.button.href} variant="primary">
+          {/* Button */}
+          <div style={{ marginTop: '2.5rem' }}>
+            <Button
+              href={ctaSection.button.href}
+              variant="primary"
+              className="!text-[18px] !font-semibold !tracking-[0.02em]"
+            >
               {ctaSection.button.label} <span aria-hidden>›</span>
             </Button>
           </div>
@@ -133,23 +149,22 @@ export default function CTASection() {
         {/* Content */}
         <div className="px-6 pt-12 pb-16">
           <p
-            className="text-gold font-semibold uppercase mb-5"
-            style={{ fontSize: '0.6rem', letterSpacing: '0.35em' }}
+            className="text-gold uppercase mb-5"
+            style={{ fontSize: '15px', fontWeight: 500, letterSpacing: '0.16em', lineHeight: 1.2 }}
           >
             {ctaSection.eyebrow}
           </p>
 
           <h2
-            className="font-display font-extrabold uppercase text-white"
-            style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)', lineHeight: 0.9 }}
+            className="font-sans font-light uppercase"
+            style={{ fontSize: 'clamp(2.2rem, 8vw, 3rem)', lineHeight: 1.07, letterSpacing: 0, color: '#F4F4F4' }}
           >
-            <span className="block">Something</span>
-            <span className="block">Unforgettable?</span>
+            {ctaSection.headline}
           </h2>
 
-          <div className="h-px w-10 bg-gold/45 mt-7 mb-6" />
+          <div className="h-px w-10 bg-gold/45 mt-6 mb-5" />
 
-          <p className="text-zinc-400 text-sm leading-loose max-w-sm">
+          <p style={{ fontSize: '18px', fontWeight: 400, lineHeight: 1.55, color: '#D3D3D3' }}>
             {ctaSection.body}
           </p>
 
