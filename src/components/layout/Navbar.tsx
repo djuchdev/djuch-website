@@ -35,10 +35,10 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex items-baseline gap-1 flex-shrink-0">
-              <span className="font-display font-bold text-2xl text-white tracking-tight">
+              <span className="font-display font-bold text-4xl text-white tracking-tight">
                 DJ
               </span>
-              <span className="font-display font-bold text-2xl text-gold tracking-tight">
+              <span className="font-display font-bold text-4xl text-gold tracking-tight">
                 &nbsp;UCH
               </span>
             </Link>
