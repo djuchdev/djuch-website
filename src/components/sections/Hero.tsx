@@ -13,16 +13,24 @@ export default function Hero() {
             src={hero.image}
             fill
             alt=""
-            className="object-cover object-center"
+            className="object-cover"
+            style={{ objectPosition: 'right center' }}
             priority
           />
         ) : (
-          /* Base atmosphere — replaced by hero.image in content.ts */
           <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-800" />
         )}
-        {/* Directional overlays: heavy left for text legibility, fades out right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/65 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25" />
+
+        {/* Left-side text gradient — only darkens behind text, right side stays clear */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.78) 28%, rgba(0,0,0,0.35) 55%, transparent 72%)',
+          }}
+        />
+
+        {/* Subtle top vignette for navbar legibility only */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent" />
       </div>
 
       {/* Two-column grid */}
