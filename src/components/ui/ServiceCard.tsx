@@ -29,8 +29,8 @@ export default function ServiceCard({ title, description, href, icon, image }: S
   return (
     <article className="group relative flex flex-col border-r border-white/5 last:border-r-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_56px_rgba(201,168,76,0.10)]">
 
-      {/* Gold top accent line — slides in from left on hover */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-10" />
+      {/* Gold top accent line — always visible at low opacity, full on hover */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gold opacity-30 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
       {/* Image */}
       <div className="relative h-60 sm:h-72 overflow-hidden flex-shrink-0">

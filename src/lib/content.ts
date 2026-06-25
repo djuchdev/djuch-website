@@ -114,7 +114,7 @@ export const ctaSection = {
   headline: 'Something Unforgettable?',
   body: "Let's make your event legendary.",
   button: { label: 'Get in Touch', href: '/booking' },
-  image: 'https://images.unsplash.com/photo-1586232902955-df204f34b36e?auto=format&fit=crop&w=700&q=80' as string | null,
+  image: '/images/cta-portrait.png' as string | null,
   imageAlt: 'DJ UCH portrait',
   signature: null as string | null,
 }

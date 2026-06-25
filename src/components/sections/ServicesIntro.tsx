@@ -4,7 +4,7 @@ import { servicesIntro } from '@/lib/content'
 
 export default function ServicesIntro() {
   return (
-    <section className="relative py-28 md:py-40 overflow-hidden bg-brand-black">
+    <section className="relative py-28 md:py-40 overflow-hidden bg-brand-black border-b border-gold/30">
 
       {/* Background */}
       <div className="absolute inset-0">

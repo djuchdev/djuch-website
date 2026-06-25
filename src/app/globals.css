@@ -11,6 +11,7 @@
   /* Typography */
   --font-display: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
   --font-sans:    var(--font-geist),  ui-sans-serif, system-ui, sans-serif;
+  --font-script:  var(--font-great-vibes), cursive;
 }
 
 /* Infinite logo marquee */
