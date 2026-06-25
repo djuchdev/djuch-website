@@ -23,8 +23,8 @@ export const hero = {
     primary: { label: 'Book an Experience', href: '/booking' },
     secondary: { label: 'Watch Showreel', href: '#' },
   },
-  // Replace null with '/images/hero.jpg' when the hero photo is ready
-  image: null as string | null,
+  // Replace with the official hero photo when available (subject on right side of frame)
+  image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1920&q=85' as string | null,
   imageAlt: 'DJ UCH performing at a live event',
 }
 
@@ -46,42 +46,42 @@ export const servicesIntro = {
   headline: 'Transform The Room.',
   body: "Whether it's a corporate event, a private celebration, a live piano experience, or a packed dance floor—my mission is the same.",
   tagline: 'Make it Unforgettable.',
-  // Replace null with '/images/event-crowd.jpg' when the background photo is ready
-  image: null as string | null,
+  // Replace with a wide crowd/celebration photo when available
+  image: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=1920&q=85' as string | null,
 }
 
 export const services: Service[] = [
   {
     title: 'Corporate Events',
-    description:
-      'I help brands connect, engage, and impress. Creating the right atmosphere for clients, teams, and partners to do business and celebrate.',
+    description: 'I help brands connect, engage, and impress. Creating the right atmosphere for clients, teams, and partners to do business and celebrate.',
     href: '/experiences#corporate',
     icon: 'headphones',
-    image: null, // Replace with '/images/service-corporate.jpg'
+    // Replace with official corporate event photo when available
+    image: 'https://images.unsplash.com/photo-1716070251589-711efc5e077e?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Private Events',
-    description:
-      'Weddings, birthdays, milestone celebrations and more. I create unforgettable experiences you and your guests will remember for years to come.',
+    description: 'Weddings, birthdays, milestone celebrations and more. I create unforgettable experiences you and your guests will remember for years to come.',
     href: '/experiences#private',
     icon: 'people',
-    image: null, // Replace with '/images/service-private.jpg'
+    // Replace with official private event/wedding photo when available
+    image: 'https://images.unsplash.com/photo-1481653125770-b78c206c59d4?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Mr. Martin Piano',
-    description:
-      'An interactive blend of live piano, comedy, and energy. High-end lounge entertainment that’s anything but ordinary.',
+    description: 'An interactive blend of live piano, comedy, and energy. High-end lounge entertainment that’s anything but ordinary.',
     href: '/experiences#piano',
     icon: 'piano',
-    image: null, // Replace with '/images/service-piano.jpg'
+    // Replace with official piano performance photo when available
+    image: 'https://images.unsplash.com/photo-1684784176798-aae206e325e7?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Music & Mixes',
-    description:
-      'Stream hand-curated mixes and exclusive sets. Perfect for your day, your party, or your creative flow.',
+    description: 'Stream hand-curated mixes and exclusive sets. Perfect for your day, your party, or your creative flow.',
     href: '/music',
     icon: 'waveform',
-    image: null, // Replace with '/images/service-music.jpg'
+    // Replace with official DJ/mixing photo when available
+    image: 'https://images.unsplash.com/photo-1541126274323-dbac58d14741?auto=format&fit=crop&w=900&q=80',
   },
 ]
 
@@ -113,15 +113,14 @@ export const ctaSection = {
   headline: 'Something Unforgettable?',
   body: "Let's make your event legendary.",
   button: { label: 'Get in Touch', href: '/booking' },
-  // Replace null with '/images/cta-portrait.jpg' when the portrait photo is ready
-  image: null as string | null,
-  imageAlt: 'DJ UCH smiling',
+  // Replace with official entertainer portrait when available
+  image: 'https://images.unsplash.com/photo-1586232902955-df204f34b36e?auto=format&fit=crop&w=700&q=80' as string | null,
+  imageAlt: 'DJ UCH portrait',
   // Replace null with '/images/signature.png' when the signature asset is ready
   signature: null as string | null,
 }
 
 export const siteMetadata = {
   title: 'DJ UCH — Unforgettable Experiences',
-  description:
-    'For over two decades, DJ UCH has transformed events into unforgettable experiences. Corporate events, private celebrations, live piano, and more.',
+  description: 'For over two decades, DJ UCH has transformed events into unforgettable experiences. Corporate events, private celebrations, live piano, and more.',
 }
