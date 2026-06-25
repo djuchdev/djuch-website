@@ -36,10 +36,10 @@ export default function CTASection() {
         <div
           className="flex flex-col justify-center"
           style={{
-            paddingTop:    'clamp(80px, 10vw, 140px)',
-            paddingBottom: 'clamp(80px, 10vw, 140px)',
-            paddingLeft:   'clamp(64px, 6.5vw, 112px)',
-            paddingRight:  'clamp(64px, 6.5vw, 112px)',
+            paddingTop:    'clamp(72px, 9vw, 120px)',
+            paddingBottom: 'clamp(72px, 9vw, 120px)',
+            paddingLeft:   'clamp(40px, 4vw, 72px)',
+            paddingRight:  'clamp(40px, 4vw, 72px)',
           }}
         >
           {/* Eyebrow */}
@@ -50,17 +50,16 @@ export default function CTASection() {
             {ctaSection.eyebrow}
           </p>
 
-          {/* Headline — two lines, maximum visual weight */}
+          {/* Headline — single commanding line */}
           <h2
             className="font-display font-extrabold uppercase text-white"
             style={{
-              fontSize: 'clamp(3rem, 4.6vw, 5rem)',
-              lineHeight: 0.88,
+              fontSize: 'clamp(1.8rem, 2.8vw, 2.8rem)',
+              lineHeight: 0.95,
               letterSpacing: '-0.01em',
             }}
           >
-            <span className="block">Something</span>
-            <span className="block">Unforgettable?</span>
+            {ctaSection.headline}
           </h2>
 
           {/* Gold rule — visual breath between headline and copy */}
@@ -85,16 +84,18 @@ export default function CTASection() {
           </div>
         </div>
 
-        {/* Col 3 — Signature as oversized typographic element */}
-        <div className="relative flex items-center justify-center border-l border-gold/10">
+        {/* Col 3 — Signature image */}
+        <div className="relative flex items-center justify-center">
           {ctaSection.signature ? (
-            <Image
-              src={ctaSection.signature}
-              alt="DJ UCH signature"
-              width={280}
-              height={140}
-              className="opacity-75"
-            />
+            <div style={{ mixBlendMode: 'screen' }}>
+              <Image
+                src={ctaSection.signature}
+                alt="DJ UCH signature"
+                width={320}
+                height={160}
+                className="w-full max-w-[280px] h-auto"
+              />
+            </div>
           ) : (
             <span
               className="text-gold select-none"

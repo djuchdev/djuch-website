@@ -116,7 +116,7 @@ export const ctaSection = {
   button: { label: 'Get in Touch', href: '/booking' },
   image: '/images/cta-portrait.png' as string | null,
   imageAlt: 'DJ UCH portrait',
-  signature: null as string | null,
+  signature: '/images/uch-signature.png' as string | null,
 }
 
 export const siteMetadata = {
