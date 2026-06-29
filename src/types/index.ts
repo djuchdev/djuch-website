@@ -23,3 +23,16 @@ export type Stat = {
   icon: 'vinyl' | 'globe' | 'film' | 'mic'
   iconImage?: string | null
 }
+
+export type JourneyStat = {
+  value: string
+  label: string
+  description: string
+  icon: 'vinyl' | 'globe' | 'film' | 'note'
+  iconImage?: string | null
+}
+
+export type PressOutlet = {
+  name: string
+  displayClass: string
+}

@@ -126,3 +126,52 @@ export function XIcon() {
     </svg>
   )
 }
+
+export function MusicNoteIcon() {
+  return (
+    <svg {...props}>
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+  )
+}
+
+export function InstagramIcon() {
+  return (
+    <svg {...props} width={18} height={18}>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  )
+}
+
+export function YouTubeIcon() {
+  return (
+    <svg {...props} width={18} height={18}>
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function SpotifyIcon() {
+  return (
+    <svg {...props} width={18} height={18} viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 13.5c2.5-1 5.5-1 8 0" />
+      <path d="M7 10.5c3-1.5 7-1.5 10 0" />
+      <path d="M9 16.5c2-0.7 4-0.7 6 0" />
+    </svg>
+  )
+}
+
+export function MailIcon() {
+  return (
+    <svg {...props} width={18} height={18}>
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
+    </svg>
+  )
+}

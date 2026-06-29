@@ -2,7 +2,9 @@ import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import { ctaSection } from '@/lib/content'
 
-export default function CTASection() {
+type CTAContent = typeof ctaSection
+
+export default function CTASection({ content = ctaSection }: { content?: CTAContent }) {
   return (
     <section className="bg-brand-dark border-t border-gold/30 overflow-hidden">
 
@@ -16,12 +18,12 @@ export default function CTASection() {
       >
         {/* Col 1 — Portrait, bleeds to grid edge */}
         <div className="relative overflow-hidden">
-          {ctaSection.image && (
+          {content.image && (
             <>
               <Image
-                src={ctaSection.image}
+                src={content.image}
                 fill
-                alt={ctaSection.imageAlt}
+                alt={content.imageAlt}
                 className="object-cover"
                 style={{ objectPosition: '65% 15%' }}
                 priority
@@ -53,7 +55,7 @@ export default function CTASection() {
               marginBottom: '1.25rem',
             }}
           >
-            {ctaSection.eyebrow}
+            {content.eyebrow}
           </p>
 
           {/* Headline — large light-weight, luxury typographic statement */}
@@ -67,7 +69,7 @@ export default function CTASection() {
               color: '#F4F4F4',
             }}
           >
-            {ctaSection.headline}
+            {content.headline}
           </h2>
 
           {/* Gold rule */}
@@ -85,27 +87,27 @@ export default function CTASection() {
               color: '#D3D3D3',
             }}
           >
-            {ctaSection.body}
+            {content.body}
           </p>
 
           {/* Button */}
           <div style={{ marginTop: '2.5rem' }}>
             <Button
-              href={ctaSection.button.href}
+              href={content.button.href}
               variant="primary"
               className="!text-[18px] !font-semibold !tracking-[0.02em]"
             >
-              {ctaSection.button.label} <span aria-hidden>›</span>
+              {content.button.label} <span aria-hidden>›</span>
             </Button>
           </div>
         </div>
 
         {/* Col 3 — Signature image */}
         <div className="relative flex items-center justify-center">
-          {ctaSection.signature ? (
+          {content.signature ? (
             <div style={{ mixBlendMode: 'screen' }}>
               <Image
-                src={ctaSection.signature}
+                src={content.signature}
                 alt="DJ UCH signature"
                 width={480}
                 height={240}
@@ -133,12 +135,12 @@ export default function CTASection() {
       {/* ── Mobile: stacked layout ── */}
       <div className="lg:hidden">
         {/* Portrait */}
-        {ctaSection.image && (
+        {content.image && (
           <div className="relative h-80 overflow-hidden">
             <Image
-              src={ctaSection.image}
+              src={content.image}
               fill
-              alt={ctaSection.imageAlt}
+              alt={content.imageAlt}
               className="object-cover"
               style={{ objectPosition: 'center 15%' }}
             />
@@ -152,29 +154,29 @@ export default function CTASection() {
             className="text-gold uppercase mb-5"
             style={{ fontSize: '15px', fontWeight: 500, letterSpacing: '0.16em', lineHeight: 1.2 }}
           >
-            {ctaSection.eyebrow}
+            {content.eyebrow}
           </p>
 
           <h2
             className="font-sans font-light uppercase"
             style={{ fontSize: 'clamp(2.2rem, 8vw, 3rem)', lineHeight: 1.07, letterSpacing: 0, color: '#F4F4F4' }}
           >
-            {ctaSection.headline}
+            {content.headline}
           </h2>
 
           <div className="h-px w-10 bg-gold/45 mt-6 mb-5" />
 
           <p style={{ fontSize: '18px', fontWeight: 400, lineHeight: 1.55, color: '#D3D3D3' }}>
-            {ctaSection.body}
+            {content.body}
           </p>
 
           <div className="mt-10 flex items-center gap-8">
-            <Button href={ctaSection.button.href} variant="primary">
-              {ctaSection.button.label} <span aria-hidden>›</span>
+            <Button href={content.button.href} variant="primary">
+              {content.button.label} <span aria-hidden>›</span>
             </Button>
 
             {/* Signature — shown inline on mobile */}
-            {!ctaSection.signature && (
+            {!content.signature && (
               <span
                 className="text-gold select-none"
                 style={{

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Great_Vibes } from 'next/font/google'
 import { Barlow_Condensed } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 import { siteMetadata } from '@/lib/content'
 import './globals.css'
 
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-brand-black text-white antialiased">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )

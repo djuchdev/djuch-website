@@ -1,4 +1,4 @@
-import type { NavLink, BrandLogo, Service, Stat } from '@/types'
+import type { NavLink, BrandLogo, Service, Stat, JourneyStat, PressOutlet } from '@/types'
 
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
@@ -117,6 +117,106 @@ export const ctaSection = {
   image: '/images/cta-portrait.png' as string | null,
   imageAlt: 'DJ UCH portrait',
   signature: '/images/uch-signature.png' as string | null,
+}
+
+// ─── About Page ────────────────────────────────────────────────────────────────
+
+export const about = {
+  hero: {
+    eyebrow: 'About UCH',
+    headlineLines: ['The Story', 'Behind The'],
+    headlineGold: 'Atmosphere.',
+    body: "For over two decades, I've had one mission: transform the room and create moments people never forget.",
+    cta: { label: 'My Story', href: '#story' },
+    image: null as string | null,
+    imageAlt: 'UCH at a luxury event',
+  },
+
+  story: {
+    eyebrow: 'My Story',
+    headlineLines: ['It started with music.', 'It became a mission.'],
+    body: "From DJing in small clubs to headlining world-class events, music has always been my language. Over the years, I've evolved as an artist, producer, pianist, and entertainer—but the mission has never changed.",
+    tagline: 'I create atmospheres that bring people together.',
+    image: null as string | null,
+    imageAlt: 'UCH performing at the DJ booth with a crowd behind him',
+  },
+
+  journey: {
+    eyebrow: 'The Journey',
+    stats: [
+      {
+        value: '20+',
+        label: 'Years',
+        description: 'Of Creating Moments Worth Remembering',
+        icon: 'vinyl' as const,
+        iconImage: '/images/icons/20-plus-years.png',
+      },
+      {
+        value: '30+',
+        label: 'Countries',
+        description: 'Performed on International Stages',
+        icon: 'globe' as const,
+        iconImage: '/images/icons/toured-the-world.png',
+      },
+      {
+        value: 'Film & TV',
+        label: 'Music Featured In',
+        description: 'Major Film & Television Soundtracks',
+        icon: 'film' as const,
+        iconImage: '/images/icons/music-in-film-and-tv.png',
+      },
+      {
+        value: '#1 Records',
+        label: 'Multiple Billboard',
+        description: 'Charts',
+        icon: 'note' as const,
+        iconImage: '/images/icons/number-1-records.png',
+      },
+    ] satisfies JourneyStat[],
+  },
+
+  connection: {
+    headlineLines: ['More Than Music.', "It's About Connection."],
+    bodyLines: [
+      'I read the room. I feel the energy.',
+      'I anticipate the moment.',
+      'Then I elevate it.',
+    ],
+    taglineLines: ['Every event is unique.', 'Every experience is personal.'],
+    closing: "That's how I create unforgettable atmospheres.",
+    image: null as string | null,
+    imageAlt: 'UCH engaging with guests at a luxury event',
+  },
+
+  press: {
+    eyebrow: 'Featured In',
+    outlets: [
+      { name: 'billboard',     displayClass: 'font-display font-black text-2xl tracking-tight' },
+      { name: 'Forbes',        displayClass: 'font-sans text-xl font-light tracking-tight' },
+      { name: 'Rolling Stone', displayClass: 'font-sans text-lg font-normal' },
+      { name: 'COMPLEX',       displayClass: 'font-display font-black text-xl tracking-[0.1em]' },
+      { name: 'VIBE',          displayClass: 'font-display font-black text-2xl tracking-[0.15em]' },
+    ] satisfies PressOutlet[],
+  },
+
+  cta: {
+    eyebrow: "Let's Create",
+    headline: 'Something Unforgettable.',
+    body: "Whether it's a corporate event, private celebration, or an intimate live performance, I'm here to transform your next event.",
+    button: { label: 'Get in Touch', href: '/booking' },
+    image: '/images/cta-portrait.png' as string | null,
+    imageAlt: 'DJ UCH portrait',
+    signature: '/images/uch-signature.png' as string | null,
+  },
+}
+
+export const footer = {
+  socials: [
+    { label: 'Instagram', icon: 'instagram' as const, href: '#' },
+    { label: 'YouTube',   icon: 'youtube'   as const, href: '#' },
+    { label: 'Spotify',   icon: 'spotify'   as const, href: '#' },
+    { label: 'Email',     icon: 'mail'      as const, href: 'mailto:booking@djuch.com' },
+  ],
 }
 
 export const siteMetadata = {
