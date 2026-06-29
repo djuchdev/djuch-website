@@ -36,3 +36,18 @@ export type PressOutlet = {
   name: string
   displayClass: string
 }
+
+export type ClientBrand = {
+  name: string
+  category: string
+}
+
+export type ClientStory = {
+  quote: string
+  author: string
+  company: string
+  eventType: string
+  detail: string
+  image: string | null
+  imageAlt: string
+}

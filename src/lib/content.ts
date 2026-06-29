@@ -1,4 +1,4 @@
-import type { NavLink, BrandLogo, Service, Stat, JourneyStat, PressOutlet } from '@/types'
+import type { NavLink, BrandLogo, Service, Stat, JourneyStat, PressOutlet, ClientBrand, ClientStory } from '@/types'
 
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
@@ -204,6 +204,84 @@ export const about = {
     headline: 'Something Unforgettable.',
     body: "Whether it's a corporate event, private celebration, or an intimate live performance, I'm here to transform your next event.",
     button: { label: 'Get in Touch', href: '/booking' },
+    image: '/images/cta-portrait.png' as string | null,
+    imageAlt: 'DJ UCH portrait',
+    signature: '/images/uch-signature.png' as string | null,
+  },
+}
+
+// ─── Clients Page ───────────────────────────────────────────────────────────────
+
+export const clients = {
+  hero: {
+    eyebrow: 'Our Clients',
+    headlineLines: ['Trusted by Brands.'],
+    headlineGold: 'Loved by People.',
+    body: "For over two decades, I've created unforgettable atmospheres for some of the world's most prestigious brands, venues, and private events — from intimate celebrations to stadium-scale productions.",
+    image: null as string | null,
+    imageAlt: 'UCH performing at a world-class corporate event',
+  },
+
+  logoWall: {
+    eyebrow: 'Trusted By',
+    intro: 'A roster built on results. These brands chose UCH because the atmosphere he creates reflects their own standard of excellence.',
+    brands: [
+      { name: 'W Hotels',               category: 'Hospitality' },
+      { name: 'MGM Resorts',            category: 'Entertainment' },
+      { name: 'Caesars Entertainment',  category: 'Entertainment' },
+      { name: 'TAO Group',              category: 'Hospitality' },
+      { name: 'Tommy Hilfiger',         category: 'Fashion' },
+      { name: 'Armani Exchange',        category: 'Fashion' },
+      { name: 'Marriott International', category: 'Hospitality' },
+      { name: 'American Express',       category: 'Finance' },
+      { name: 'BET Networks',           category: 'Media' },
+      { name: 'Live Nation',            category: 'Entertainment' },
+      { name: 'Ritz-Carlton',           category: 'Hospitality' },
+      { name: 'Four Seasons',           category: 'Hospitality' },
+    ] satisfies ClientBrand[],
+    suffix: 'And many more world-class clients',
+  },
+
+  stories: {
+    eyebrow: 'Client Stories',
+    headlineLines: ['Experiences That'],
+    headlineGold: 'Speak for Themselves.',
+    items: [
+      {
+        quote: "UCH transformed our annual leadership summit into something our clients and team still talk about years later. He didn't just play music — he created a moment.",
+        author: 'Senior Vice President',
+        company: 'Global Financial Services Firm',
+        eventType: 'Corporate Event',
+        detail: '500+ Guests · Manhattan, New York',
+        image: '/images/corporate-events.png',
+        imageAlt: 'Corporate gala in a New York venue',
+      },
+      {
+        quote: "Every event UCH performs at becomes the highlight of our social calendar. Our guests consistently ask who the artist is — and how they can book him privately.",
+        author: 'Director of Experiences',
+        company: 'W Hotels Worldwide',
+        eventType: 'Hospitality Residency',
+        detail: 'Multiple Residencies · Global',
+        image: '/images/private-events.png',
+        imageAlt: 'Luxury hotel event with guests',
+      },
+      {
+        quote: "We wanted our anniversary to feel cinematic. UCH delivered something beyond our imagination. Our guests are still sending us messages about that night.",
+        author: 'Private Client',
+        company: 'Miami, Florida',
+        eventType: 'Private Celebration',
+        detail: 'Intimate Evening · Miami, FL',
+        image: '/images/mr-martin-piano.png',
+        imageAlt: 'Private luxury celebration',
+      },
+    ] satisfies ClientStory[],
+  },
+
+  cta: {
+    eyebrow: "Let's Create",
+    headline: 'Your Best Event Yet.',
+    body: "Join the world's most prestigious brands and private clients who trust UCH to create their most unforgettable moments.",
+    button: { label: 'Book UCH', href: '/booking' },
     image: '/images/cta-portrait.png' as string | null,
     imageAlt: 'DJ UCH portrait',
     signature: '/images/uch-signature.png' as string | null,

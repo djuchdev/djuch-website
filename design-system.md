@@ -227,6 +227,22 @@ Shorthand for the standard gold eyebrow label. Use when the eyebrow is the *only
 - `hover:-translate-y-1` lift + gold shadow
 - "Learn More ›" link in gold
 
+### ClientStoryCard (`src/components/ui/ClientStoryCard.tsx`)
+
+Editorial case-study/testimonial card. Used in the Clients page `ClientStories` section.
+
+Structure (top → bottom):
+1. Image area (`h-64 sm:h-72`, `group-hover:scale-[1.03]`) with bottom gradient fade
+2. Event type badge — absolute bottom-left over image (`border border-gold/50 bg-black/60 backdrop-blur-sm`)
+3. Decorative large opening quote mark in gold/30 (`font-family: Georgia`)
+4. Quote text — `text-zinc-300 text-sm italic leading-relaxed`
+5. Gold rule (`w-8 h-px bg-gold/40`)
+6. Author — `font-display font-bold uppercase text-white text-sm`
+7. Company — `text-zinc-500 text-[11px]`
+8. Detail — `text-gold/70 text-[10px] tracking-[0.18em] uppercase`
+
+Hover effects match ServiceCard: `hover:-translate-y-1`, top gold accent opacity reveal, image subtle zoom.
+
 ### StatItem (`src/components/ui/StatItem.tsx`)
 
 Horizontal layout: gold-bordered circle icon left, bold headline + muted description right. Used in the homepage StatsBar. For **vertical centered stats** (About Journey), use the inline pattern in `JourneyBar.tsx`.
@@ -294,6 +310,17 @@ All icons are hand-drawn SVG at `20×20`, stroke `1.5`, `currentColor`, `round` 
 | `about-hero.png` | About hero — portrait of UCH in suit, luxury interior |
 | `about-story.png` | Story section — dramatic B&W DJ performance with crowd |
 | `about-connection.png` | Connection section — UCH with guests at a luxury event |
+
+### Clients page (images to be added)
+
+| File | Used in |
+|---|---|
+| `clients-hero.png` | Clients hero — UCH at a large corporate event |
+| `clients-story-corporate.png` | First ClientStoryCard — corporate gala setting |
+| `clients-story-hotel.png` | Second ClientStoryCard — luxury hotel event |
+| `clients-story-private.png` | Third ClientStoryCard — intimate private celebration |
+
+Until supplied, story cards reuse `corporate-events.png`, `private-events.png`, `mr-martin-piano.png` from the services section. Update image paths in `clients.stories.items[]` in `content.ts`.
 
 **Set in `src/lib/content.ts`** as `null` until supplied. All components handle `null` gracefully with atmospheric dark gradient fallbacks.
 
