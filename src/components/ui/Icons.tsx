@@ -176,6 +176,59 @@ export function MailIcon() {
   )
 }
 
+/* Private Events page icons */
+
+export function HeartIcon() {
+  return (
+    <svg {...props}>
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+    </svg>
+  )
+}
+
+export function RingsIcon() {
+  return (
+    <svg {...props}>
+      <circle cx="8"  cy="12" r="5" />
+      <circle cx="16" cy="12" r="5" />
+    </svg>
+  )
+}
+
+export function CakeIcon() {
+  return (
+    <svg {...props}>
+      <path d="M20 21H4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z" />
+      <path d="M4 13v-2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2" />
+      <line x1="8"  y1="9" x2="8"  y2="6" />
+      <line x1="12" y1="9" x2="12" y2="6" />
+      <line x1="16" y1="9" x2="16" y2="6" />
+      <line x1="8"  y1="6" x2="8"  y2="4" />
+      <line x1="12" y1="6" x2="12" y2="4" />
+      <line x1="16" y1="6" x2="16" y2="4" />
+    </svg>
+  )
+}
+
+export function BalloonIcon() {
+  return (
+    <svg {...props}>
+      <ellipse cx="12" cy="9" rx="5.5" ry="7" />
+      <path d="M12 16l-1.5 4" />
+      <path d="M10.5 20c.5 1.2 2.5 1.2 3 0" />
+    </svg>
+  )
+}
+
+export function HomeIcon() {
+  return (
+    <svg {...props}>
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </svg>
+  )
+}
+
 /* Corporate Events page icons */
 
 export function StarIcon() {

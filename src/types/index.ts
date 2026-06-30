@@ -91,6 +91,18 @@ export type MusicHighlightStat = {
   description: string
 }
 
+export type PrivatePillar = {
+  icon: 'heart' | 'note' | 'star' | 'people'
+  title: string
+  description: string
+}
+
+export type PrivateCelebration = {
+  icon: 'rings' | 'cake' | 'toast' | 'balloon' | 'star' | 'home'
+  title: string
+  description: string
+}
+
 export type CorporatePillar = {
   icon: 'star' | 'sliders' | 'check' | 'headphones'
   title: string

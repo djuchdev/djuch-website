@@ -4,6 +4,7 @@ import type {
   StreamingPlatform, Mix, MusicRelease, FilmTvPlacement, MusicHighlightStat,
   BookingStep, TrustIndicator,
   CorporatePillar, EventTypeItem, GalleryItem, CorporateTestimonial,
+  PrivatePillar, PrivateCelebration,
 } from '@/types'
 
 export const nav = {
@@ -502,6 +503,127 @@ export const footer = {
     { label: 'Spotify',   icon: 'spotify'   as const, href: '#' },
     { label: 'Email',     icon: 'mail'      as const, href: 'mailto:booking@djuch.com' },
   ],
+}
+
+// ─── Private Events Page ───────────────────────────────────────────────────────
+
+export const privateEvents = {
+  hero: {
+    eyebrow: 'Private Events',
+    headlineLines: ['Personal Moments.'],
+    headlineGold: 'Extraordinary Atmospheres.',
+    body: "From intimate celebrations to once-in-a-lifetime moments — Uch creates the soundtrack and atmosphere that you and your guests will never forget.",
+    ctas: {
+      primary:   { label: 'Check Availability',      href: '/booking' },
+      secondary: { label: 'View Private Event Reel', href: '#'        },
+    },
+    image:    '/images/private-events.png' as string | null,
+    imageAlt: 'UCH performing at a luxury private event with floral arrangements',
+  },
+
+  pillars: [
+    {
+      icon:        'heart'  as const,
+      title:       'Personal & Curated',
+      description: 'Every event is designed around you.',
+    },
+    {
+      icon:        'note'   as const,
+      title:       'The Perfect Soundtrack',
+      description: 'The right music at the right moment.',
+    },
+    {
+      icon:        'star'   as const,
+      title:       'Seamless Experience',
+      description: 'Planning, flow, and execution handled with care.',
+    },
+    {
+      icon:        'people' as const,
+      title:       'Unforgettable Memories',
+      description: 'Moments you and your guests will always remember.',
+    },
+  ] satisfies PrivatePillar[],
+
+  celebrations: {
+    eyebrow: 'Perfect For Every Celebration',
+    items: [
+      {
+        icon: 'rings'   as const,
+        title: 'Weddings',
+        description: 'Ceremonies, cocktail hours, receptions and after parties.',
+      },
+      {
+        icon: 'cake'    as const,
+        title: 'Birthdays',
+        description: 'Milestone celebrations made unforgettable.',
+      },
+      {
+        icon: 'toast'   as const,
+        title: 'Anniversaries',
+        description: 'Romantic, elegant, and uniquely you.',
+      },
+      {
+        icon: 'balloon' as const,
+        title: 'Private Parties',
+        description: 'From intimate dinners to full-scale celebrations.',
+      },
+      {
+        icon: 'star'    as const,
+        title: 'Celebrations',
+        description: 'Engagements, graduations, retirements and more.',
+      },
+      {
+        icon: 'home'    as const,
+        title: 'At Home Events',
+        description: 'Elevate your space into the perfect experience.',
+      },
+    ] satisfies PrivateCelebration[],
+    image:    null as string | null,
+    imageAlt: 'Elegant private celebration with candlelight and florals',
+  },
+
+  gallery: {
+    eyebrow: 'Moments That Speak For Themselves',
+    button:  { label: 'View More Gallery', href: '#' },
+    items: [
+      { image: null as string | null, gradient: 'from-amber-950 via-amber-900/60 to-zinc-900',    alt: 'First dance sparkler exit'            },
+      { image: null as string | null, gradient: 'from-yellow-950 via-amber-800/50 to-zinc-900',  alt: 'Candlelit intimate celebration'        },
+      { image: null as string | null, gradient: 'from-violet-950 via-amber-900/35 to-zinc-900',  alt: 'Dance floor celebration'               },
+      { image: null as string | null, gradient: 'from-orange-950 via-amber-900/50 to-zinc-900',  alt: 'Elegant tablescape with florals'        },
+      { image: null as string | null, gradient: 'from-rose-950 via-amber-900/40 to-zinc-900',    alt: 'String lights at outdoor reception'    },
+    ],
+  },
+
+  testimonials: {
+    eyebrow: 'What Our Clients Say',
+    items: [
+      {
+        quote:  "Uch made our wedding feel like a movie. The energy was perfect all night and our guests are still talking about it.",
+        author: 'Jessica & Marcus',
+        title:  'Los Angeles, CA',
+      },
+      {
+        quote:  "Professional, responsive, and truly talented. He understood our vibe instantly and elevated our entire celebration.",
+        author: 'Nicole',
+        title:  'Birthday Celebration, Las Vegas',
+      },
+      {
+        quote:  "The music, the transitions, the atmosphere — everything was flawless. Worth every penny.",
+        author: 'David & Sarah',
+        title:  'Anniversary Party, Miami',
+      },
+    ] satisfies CorporateTestimonial[],
+  },
+
+  cta: {
+    eyebrow:  "Let's Create Your Moment",
+    headline: 'Ready to Create Your Unforgettable Celebration?',
+    body:     "Let's bring your vision to life.",
+    button:   { label: 'Book a Consultation', href: '/booking' },
+    image:     '/images/cta-portrait.png'   as string | null,
+    imageAlt:  'DJ UCH portrait',
+    signature: '/images/uch-signature.png'  as string | null,
+  },
 }
 
 // ─── Corporate Events Page ──────────────────────────────────────────────────────
