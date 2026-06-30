@@ -243,6 +243,40 @@ Structure (top → bottom):
 
 Hover effects match ServiceCard: `hover:-translate-y-1`, top gold accent opacity reveal, image subtle zoom.
 
+### PlatformCard (`src/components/ui/PlatformCard.tsx`)
+
+Streaming platform card. Used in Music page `StreamingPlatforms` section.
+- Icon (top, 32px, `text-white/35` → `text-gold` on hover) from `Icons.tsx`
+- Platform name — `font-display font-bold uppercase text-white/55`
+- Descriptor — `text-zinc-600 text-[11px]`
+- "Listen ›" — `text-gold/50` → `text-gold` on hover
+- Container hover: `bg-brand-surface` fill + gold top accent reveal
+
+Rendered inside a `border-l border-t border-white/5` seamless grid container.
+
+### MixCard (`src/components/ui/MixCard.tsx`)
+
+Music mix card. Used in Music page `FeaturedMixes` section.
+- Square `aspect-square` artwork (gradient fallback with vinyl ring suggestion)
+- Genre badge — absolute top-left over artwork
+- Mix title — `font-display font-bold uppercase`
+- Description — `text-zinc-500 text-xs`
+- Footer row: duration (zinc-600) + "Play ›" link (gold)
+
+Gradient fallbacks define atmosphere per mix — see `music.mixes.items[].gradient` in `content.ts`.
+
+### ReleaseCard (`src/components/ui/ReleaseCard.tsx`)
+
+Music release card. Used in Music page `OriginalMusic` section.
+- Square `aspect-square` artwork (gradient fallback with waveform bar suggestion)
+- Release type badge (Single/EP/Album) with distinct border colors:
+  - Single: `border-gold/50 text-gold`
+  - EP: `border-zinc-500/50 text-zinc-400`
+  - Album: `border-white/30 text-white/70`
+- Title + year + "Stream ›" link in detail row below artwork
+
+Rendered inside a `gap-px bg-white/5 border border-white/5` grid for seamless thin-line separators.
+
 ### StatItem (`src/components/ui/StatItem.tsx`)
 
 Horizontal layout: gold-bordered circle icon left, bold headline + muted description right. Used in the homepage StatsBar. For **vertical centered stats** (About Journey), use the inline pattern in `JourneyBar.tsx`.
@@ -273,6 +307,11 @@ All icons are hand-drawn SVG at `20×20`, stroke `1.5`, `currentColor`, `round` 
 | `FilmIcon` | Film & TV stat |
 | `MicIcon` | Microphone stat |
 | `MusicNoteIcon` | #1 Records stat (About page) |
+| `AppleMusicIcon` | Apple Music platform card (Music page) |
+| `MixcloudIcon` | Mixcloud platform card (Music page) |
+| `SoundCloudIcon` | SoundCloud platform card (Music page) |
+| `SpotifyFullIcon` | Spotify platform card — sized variant (Music page) |
+| `YouTubeFullIcon` | YouTube platform card — sized variant (Music page) |
 | `ChevronDownIcon` | Nav dropdown indicator |
 | `MenuIcon` | Mobile hamburger |
 | `XIcon` | Mobile menu close |
@@ -321,6 +360,25 @@ All icons are hand-drawn SVG at `20×20`, stroke `1.5`, `currentColor`, `round` 
 | `clients-story-private.png` | Third ClientStoryCard — intimate private celebration |
 
 Until supplied, story cards reuse `corporate-events.png`, `private-events.png`, `mr-martin-piano.png` from the services section. Update image paths in `clients.stories.items[]` in `content.ts`.
+
+### Music page (images to be added)
+
+| File | Used in |
+|---|---|
+| `music-hero.png` | Music hero background — UCH behind the decks, atmospheric lighting |
+| `mix-lounge-nights.png` | Lounge Nights mix card artwork |
+| `mix-sunset-sessions.png` | Sunset Sessions mix card artwork |
+| `mix-city-lights.png` | City Lights mix card artwork |
+| `mix-party-starters.png` | Party Starters mix card artwork |
+| `mix-road-trip.png` | Road Trip mix card artwork |
+| `release-feel-the-atmosphere.png` | Original release artwork |
+| `release-connected.png` | EP artwork |
+| `release-elevate.png` | Single artwork |
+| `release-the-experience.png` | Album artwork |
+
+Hero currently uses `music-and-mixes.png`. Mix and release cards use gradient fallbacks until artwork is supplied. Update image paths in `music.mixes.items[]` and `music.releases.items[]` in `content.ts`.
+
+**Mix card gradient fallbacks** are defined per-mix as Tailwind gradient class strings in `content.ts` — each evokes the mix's atmosphere (warm amber for Lounge Nights, burnt orange for Sunset Sessions, etc.).
 
 **Set in `src/lib/content.ts`** as `null` until supplied. All components handle `null` gracefully with atmospheric dark gradient fallbacks.
 

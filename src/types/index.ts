@@ -51,3 +51,42 @@ export type ClientStory = {
   image: string | null
   imageAlt: string
 }
+
+export type StreamingPlatform = {
+  name: string
+  descriptor: string
+  href: string
+  icon: 'spotify' | 'apple-music' | 'mixcloud' | 'soundcloud' | 'youtube'
+}
+
+export type Mix = {
+  title: string
+  description: string
+  duration: string
+  genre: string
+  gradient: string
+  image: string | null
+  href: string
+}
+
+export type MusicRelease = {
+  title: string
+  type: 'Single' | 'EP' | 'Album'
+  year: string
+  gradient: string
+  image: string | null
+  href: string
+}
+
+export type FilmTvPlacement = {
+  title: string
+  type: 'Film' | 'Television' | 'Documentary' | 'Series'
+  year: string
+  description: string
+}
+
+export type MusicHighlightStat = {
+  value: string
+  label: string
+  description: string
+}

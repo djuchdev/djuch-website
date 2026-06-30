@@ -1,4 +1,8 @@
-import type { NavLink, BrandLogo, Service, Stat, JourneyStat, PressOutlet, ClientBrand, ClientStory } from '@/types'
+import type {
+  NavLink, BrandLogo, Service, Stat, JourneyStat, PressOutlet,
+  ClientBrand, ClientStory,
+  StreamingPlatform, Mix, MusicRelease, FilmTvPlacement, MusicHighlightStat,
+} from '@/types'
 
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
@@ -281,6 +285,207 @@ export const clients = {
     eyebrow: "Let's Create",
     headline: 'Your Best Event Yet.',
     body: "Join the world's most prestigious brands and private clients who trust UCH to create their most unforgettable moments.",
+    button: { label: 'Book UCH', href: '/booking' },
+    image: '/images/cta-portrait.png' as string | null,
+    imageAlt: 'DJ UCH portrait',
+    signature: '/images/uch-signature.png' as string | null,
+  },
+}
+
+// ─── Music Page ─────────────────────────────────────────────────────────────────
+
+export const music = {
+  hero: {
+    eyebrow: 'Music & Mixes',
+    headlineLines: ['Music That Moves', 'People.'],
+    headlineGold: 'Atmospheres That Stay.',
+    body: "Music is the invisible architecture of every unforgettable experience. Explore the sounds, mixes, and original recordings that have moved audiences across the world.",
+    ctas: {
+      primary:   { label: 'Listen Now',    href: '#streaming' },
+      secondary: { label: 'Watch Showreel', href: '#' },
+    },
+    image: '/images/music-and-mixes.png' as string | null,
+    imageAlt: 'UCH behind the decks at a world-class event',
+  },
+
+  streaming: {
+    eyebrow: 'Stream',
+    headline: 'Find Your Sound.',
+    body: 'Every curated mix, original track, and exclusive set — available wherever you listen.',
+    platforms: [
+      {
+        name: 'Spotify',
+        descriptor: 'Stream curated playlists and mixes',
+        href: '#',
+        icon: 'spotify' as const,
+      },
+      {
+        name: 'Apple Music',
+        descriptor: 'Original tracks and chart hits',
+        href: '#',
+        icon: 'apple-music' as const,
+      },
+      {
+        name: 'Mixcloud',
+        descriptor: 'Full DJ sets and exclusive shows',
+        href: '#',
+        icon: 'mixcloud' as const,
+      },
+      {
+        name: 'SoundCloud',
+        descriptor: 'Previews, edits, and underground cuts',
+        href: '#',
+        icon: 'soundcloud' as const,
+      },
+      {
+        name: 'YouTube',
+        descriptor: 'Live performances and music videos',
+        href: '#',
+        icon: 'youtube' as const,
+      },
+    ] satisfies StreamingPlatform[],
+  },
+
+  mixes: {
+    eyebrow: 'Featured Mixes',
+    headline: 'Curated for Every Atmosphere.',
+    items: [
+      {
+        title: 'Lounge Nights',
+        description: 'The soundtrack to upscale evenings and intimate conversations.',
+        duration: '75 min',
+        genre: 'Luxury Lounge',
+        gradient: 'from-amber-950/60 via-zinc-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'Sunset Sessions',
+        description: 'Golden hour vibes for rooftops, terraces, and sundowners.',
+        duration: '90 min',
+        genre: 'Sunset Soul',
+        gradient: 'from-orange-950/50 via-zinc-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'City Lights',
+        description: 'Urban elegance — the sound of the city after midnight.',
+        duration: '80 min',
+        genre: 'Urban Chic',
+        gradient: 'from-zinc-700 via-zinc-800 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'Party Starters',
+        description: 'High-energy selections built to move a room.',
+        duration: '60 min',
+        genre: 'Peak Hour',
+        gradient: 'from-zinc-800 via-stone-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'Road Trip',
+        description: 'Miles of premium listening for long drives and open roads.',
+        duration: '120 min',
+        genre: 'Journey',
+        gradient: 'from-stone-800 via-zinc-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+    ] satisfies Mix[],
+  },
+
+  releases: {
+    eyebrow: 'Original Music',
+    headline: 'Beyond the Mix.',
+    body: 'Original productions, collaborations, and studio recordings — music built to last.',
+    items: [
+      {
+        title: 'Feel the Atmosphere',
+        type: 'Single' as const,
+        year: '2024',
+        gradient: 'from-amber-950/50 via-zinc-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'Connected',
+        type: 'EP' as const,
+        year: '2023',
+        gradient: 'from-zinc-700 via-zinc-800 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'Elevate',
+        type: 'Single' as const,
+        year: '2023',
+        gradient: 'from-stone-800 via-zinc-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+      {
+        title: 'The Experience',
+        type: 'Album' as const,
+        year: '2022',
+        gradient: 'from-zinc-800 via-zinc-900 to-zinc-950',
+        image: null as string | null,
+        href: '#',
+      },
+    ] satisfies MusicRelease[],
+  },
+
+  highlights: {
+    eyebrow: 'The Record',
+    intro: 'A career measured not in plays, but in rooms transformed.',
+    stats: [
+      { value: '#1',       label: 'Billboard Charts',  description: 'Multiple chart-topping recordings' },
+      { value: '20+',      label: 'Years',              description: 'Of crafting unforgettable atmospheres' },
+      { value: '30+',      label: 'Countries',          description: 'Music heard around the world' },
+      { value: 'Film & TV', label: 'Featured In',       description: 'Major international productions' },
+    ] satisfies MusicHighlightStat[],
+  },
+
+  filmTv: {
+    eyebrow: 'Film & Television',
+    headlineLines: ['Music That Sets'],
+    headlineGold: 'The Scene.',
+    body: "When a director needs a sound that makes an audience feel something, they call. Here's where the music has landed.",
+    placements: [
+      {
+        title: 'Major Network Drama Series',
+        type: 'Television' as const,
+        year: '2024',
+        description: 'Original compositions and curated score across multiple season episodes.',
+      },
+      {
+        title: 'International Feature Film',
+        type: 'Film' as const,
+        year: '2023',
+        description: 'Original score contribution and soundtrack supervision.',
+      },
+      {
+        title: 'Global Lifestyle Documentary',
+        type: 'Documentary' as const,
+        year: '2023',
+        description: 'Featured throughout — primary atmospheric soundtrack.',
+      },
+      {
+        title: 'Premium Streaming Series',
+        type: 'Series' as const,
+        year: '2022',
+        description: 'Recurring soundtrack placement across two seasons.',
+      },
+    ] satisfies FilmTvPlacement[],
+  },
+
+  cta: {
+    eyebrow: 'Every Great Event',
+    headline: 'Deserves Great Music.',
+    body: "Music sets the tone, builds the energy, and creates the memories. Let's make your event one people never stop talking about.",
     button: { label: 'Book UCH', href: '/booking' },
     image: '/images/cta-portrait.png' as string | null,
     imageAlt: 'DJ UCH portrait',
