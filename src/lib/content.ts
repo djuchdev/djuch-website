@@ -11,7 +11,7 @@ import type {
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
   links: [
-    { label: 'Experiences', href: '/experiences', hasDropdown: true },
+    { label: 'Experiences', href: '/clients', hasDropdown: false },
     { label: 'About UCH', href: '/about' },
     { label: 'Clients', href: '/clients' },
     { label: 'Media', href: '/media' },
