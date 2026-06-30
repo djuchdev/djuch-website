@@ -176,6 +176,96 @@ export function MailIcon() {
   )
 }
 
+/* Corporate Events page icons */
+
+export function StarIcon() {
+  return (
+    <svg {...props}>
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  )
+}
+
+export function SlidersIcon() {
+  return (
+    <svg {...props}>
+      <line x1="4" y1="21" x2="4" y2="14" />
+      <line x1="4" y1="10" x2="4" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="12" />
+      <line x1="12" y1="8"  x2="12" y2="3" />
+      <line x1="20" y1="21" x2="20" y2="16" />
+      <line x1="20" y1="12" x2="20" y2="3" />
+      <line x1="1"  y1="14" x2="7"  y2="14" />
+      <line x1="9"  y1="8"  x2="15" y2="8" />
+      <line x1="17" y1="16" x2="23" y2="16" />
+    </svg>
+  )
+}
+
+export function CheckCircleIcon() {
+  return (
+    <svg {...props}>
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
+    </svg>
+  )
+}
+
+export function BriefcaseIcon() {
+  return (
+    <svg {...props}>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+      <line x1="12" y1="12" x2="12" y2="16" />
+      <line x1="10" y1="14" x2="14" y2="14" />
+    </svg>
+  )
+}
+
+export function RocketIcon() {
+  return (
+    <svg {...props}>
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+    </svg>
+  )
+}
+
+export function TrophyIcon() {
+  return (
+    <svg {...props}>
+      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+      <path d="M4 22h16" />
+      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+      <path d="M18 2H6v7a6 6 0 0 0 12 0V2z" />
+    </svg>
+  )
+}
+
+export function CompassIcon() {
+  return (
+    <svg {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+    </svg>
+  )
+}
+
+export function ToastIcon() {
+  return (
+    <svg {...props}>
+      <path d="M17 11l1-8H6l1 8" />
+      <path d="M6 11c0 4 2 6 6 6s6-2 6-6" />
+      <line x1="12" y1="17" x2="12" y2="22" />
+      <line x1="9"  y1="22" x2="15" y2="22" />
+    </svg>
+  )
+}
+
 /* Booking page icons */
 
 export function CalendarIcon() {

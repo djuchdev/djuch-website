@@ -3,6 +3,7 @@ import type {
   ClientBrand, ClientStory,
   StreamingPlatform, Mix, MusicRelease, FilmTvPlacement, MusicHighlightStat,
   BookingStep, TrustIndicator,
+  CorporatePillar, EventTypeItem, GalleryItem, CorporateTestimonial,
 } from '@/types'
 
 export const nav = {
@@ -501,6 +502,118 @@ export const footer = {
     { label: 'Spotify',   icon: 'spotify'   as const, href: '#' },
     { label: 'Email',     icon: 'mail'      as const, href: 'mailto:booking@djuch.com' },
   ],
+}
+
+// ─── Corporate Events Page ──────────────────────────────────────────────────────
+
+export const corporate = {
+  hero: {
+    eyebrow: 'Corporate Events',
+    headlineLines: ['Professional.', 'Polished.'],
+    headlineGold: 'Unforgettable.',
+    body: "From conferences to galas, product launches to executive retreats — Uch creates the perfect atmosphere that elevates your brand and leaves a lasting impression.",
+    ctas: {
+      primary:   { label: 'Check Availability',   href: '/booking' },
+      secondary: { label: 'View Corporate Reel',  href: '#' },
+    },
+    image:    '/images/corporate-events.png' as string | null,
+    imageAlt: 'DJ UCH performing at a luxury corporate gala',
+  },
+
+  brands: {
+    eyebrow: 'Trusted by Leading Brands',
+    names: [
+      { name: "McDonald's",          style: 'bold-sans'   },
+      { name: 'Nike',                style: 'light-sans'  },
+      { name: 'Amazon',              style: 'regular-sans' },
+      { name: 'Microsoft',           style: 'bold-sans'   },
+      { name: 'Google',              style: 'light-sans'  },
+      { name: 'Marquee Nightclub',   style: 'serif'       },
+      { name: 'Caesars Entertainment', style: 'regular-sans' },
+    ],
+    suffix: 'And Many More',
+  },
+
+  pillars: {
+    eyebrow: 'Why Companies Choose UCH',
+    items: [
+      {
+        icon: 'star'       as const,
+        title: 'Experience That Delivers',
+        description: '15+ years creating premium experiences for top brands, executives, and teams.',
+      },
+      {
+        icon: 'sliders'    as const,
+        title: 'Tailored to Your Vision',
+        description: 'Every detail curated around your goals, brand, and audience.',
+      },
+      {
+        icon: 'check'      as const,
+        title: 'Seamless & Professional',
+        description: 'From planning to execution, we handle it all — so you can focus on your event.',
+      },
+      {
+        icon: 'headphones' as const,
+        title: 'Atmosphere That Inspires',
+        description: 'The right energy at the right moment drives engagement and impact.',
+      },
+    ] satisfies CorporatePillar[],
+    image:    '/images/transform-the-room.png' as string | null,
+    imageAlt: 'Corporate ballroom filled with guests',
+  },
+
+  eventTypes: {
+    eyebrow: 'Perfect For',
+    items: [
+      { icon: 'briefcase' as const, label: 'Corporate Parties'      },
+      { icon: 'people'    as const, label: 'Conferences & Summits'  },
+      { icon: 'rocket'    as const, label: 'Product Launches'        },
+      { icon: 'trophy'    as const, label: 'Award Ceremonies'        },
+      { icon: 'compass'   as const, label: 'Executive Retreats'      },
+      { icon: 'toast'     as const, label: 'Client Appreciation'     },
+    ] satisfies EventTypeItem[],
+  },
+
+  gallery: {
+    eyebrow: 'Corporate Event Moments',
+    items: [
+      { image: null, gradient: 'from-blue-950 via-blue-900/60 to-zinc-900',    alt: 'Corporate ballroom event with stage lighting' },
+      { image: null, gradient: 'from-amber-950 via-amber-900/50 to-zinc-900',  alt: 'Gala dinner with candlelit tables'             },
+      { image: null, gradient: 'from-violet-950 via-violet-900/50 to-zinc-900', alt: 'Awards ceremony with spotlights'              },
+      { image: null, gradient: 'from-teal-950 via-teal-900/50 to-zinc-900',    alt: 'Product launch event with lighting'            },
+    ] satisfies GalleryItem[],
+  },
+
+  testimonials: {
+    eyebrow: 'What Our Clients Say',
+    items: [
+      {
+        quote: "Uch took our annual gala to another level. The energy, the transitions, the attention to detail — everything was perfect.",
+        author: 'Jason T.',
+        title: 'Marketing Director, Nike',
+      },
+      {
+        quote: "Our team still talks about the night. Uch created an atmosphere that was elevated, seamless, and unforgettable.",
+        author: 'Lisa M.',
+        title: 'Global Events, Amazon',
+      },
+      {
+        quote: "A true professional who reads the room perfectly. He understands how to represent our brand with class.",
+        author: 'Michael R.',
+        title: 'VP of Operations, Microsoft',
+      },
+    ] satisfies CorporateTestimonial[],
+  },
+
+  cta: {
+    eyebrow: "Let's Create Something Remarkable",
+    headline: 'Ready To Elevate Your Next Corporate Event?',
+    body: "Let's discuss your vision. I'll handle the atmosphere. You get the impact.",
+    button: { label: 'Book a Consultation', href: '/booking' },
+    image:     '/images/cta-portrait.png'    as string | null,
+    imageAlt:  'DJ UCH portrait',
+    signature: '/images/uch-signature.png'   as string | null,
+  },
 }
 
 export const siteMetadata = {

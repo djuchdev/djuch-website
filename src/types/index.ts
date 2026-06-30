@@ -91,6 +91,29 @@ export type MusicHighlightStat = {
   description: string
 }
 
+export type CorporatePillar = {
+  icon: 'star' | 'sliders' | 'check' | 'headphones'
+  title: string
+  description: string
+}
+
+export type EventTypeItem = {
+  icon: 'briefcase' | 'people' | 'rocket' | 'trophy' | 'compass' | 'toast'
+  label: string
+}
+
+export type GalleryItem = {
+  image: string | null
+  gradient: string
+  alt: string
+}
+
+export type CorporateTestimonial = {
+  quote: string
+  author: string
+  title: string
+}
+
 export type BookingStep = {
   number: string
   title: string
