@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import MusicHero from '@/components/sections/music/MusicHero'
-import StreamingPlatforms from '@/components/sections/music/StreamingPlatforms'
-import FeaturedMixes from '@/components/sections/music/FeaturedMixes'
-import OriginalMusic from '@/components/sections/music/OriginalMusic'
-import MusicHighlights from '@/components/sections/music/MusicHighlights'
-import FilmAndTv from '@/components/sections/music/FilmAndTv'
+import ListenAndStream from '@/components/sections/music/ListenAndStream'
+import OriginalReleases from '@/components/sections/music/OriginalReleases'
+import MusicRecognition from '@/components/sections/music/MusicRecognition'
 import CTASection from '@/components/sections/CTASection'
 import { music } from '@/lib/content'
 
@@ -18,11 +16,9 @@ export default function MusicPage() {
   return (
     <main>
       <MusicHero />
-      <StreamingPlatforms />
-      <FeaturedMixes />
-      <OriginalMusic />
-      <MusicHighlights />
-      <FilmAndTv />
+      <ListenAndStream />
+      <OriginalReleases />
+      <MusicRecognition />
       <CTASection content={music.cta} />
     </main>
   )

@@ -4,7 +4,29 @@
       "Bash(cd /Users/uchopen/Documents && ls)",
       "Bash(npx create-next-app@latest website --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(npm run *)",
+      "Skill(run)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(npx playwright *)",
+      "Bash(node *)",
+      "Bash(npx playwright@latest --version)",
+      "Bash(pkill -f \"next dev\")",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(unzip *)",
+      "Bash(cp \"/Users/uchopen/Downloads/number 1 records.png\"           /Users/uchopen/agents/website/public/images/icons/number-1-records.png)",
+      "Bash(cp \"/Users/uchopen/Downloads/toured the world.png\"             /Users/uchopen/agents/website/public/images/icons/toured-the-world.png)",
+      "Bash(cp \"/Users/uchopen/Downloads/music in film and television.png\" /Users/uchopen/agents/website/public/images/icons/music-in-film-and-tv.png)",
+      "Bash(cp \"/Users/uchopen/Downloads/20 plus years.png\"                /Users/uchopen/agents/website/public/images/icons/20-plus-years.png)",
+      "Bash(cp \"/Users/uchopen/Downloads/corporate events.png\"             /Users/uchopen/agents/website/public/images/corporate-events.png)",
+      "Bash(xargs cat -n)",
+      "Bash(md5 /Users/uchopen/agents/website/public/images/corporate-events.png)",
+      "Bash(md5 /Users/uchopen/agents/website/public/images/private-events.png)",
+      "Bash(md5 \"/Users/uchopen/Downloads/corporate events.png\")",
+      "Bash(git revert *)",
+      "Bash(gh auth *)",
+      "Bash(npm install *)",
+      "Bash(gh repo *)"
     ]
   }
 }

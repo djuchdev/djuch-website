@@ -62,8 +62,7 @@ export type StreamingPlatform = {
 export type Mix = {
   title: string
   description: string
-  duration: string
-  genre: string
+  platform: 'spotify' | 'apple-music' | 'mixcloud' | 'soundcloud' | 'youtube'
   gradient: string
   image: string | null
   href: string
@@ -71,24 +70,16 @@ export type Mix = {
 
 export type MusicRelease = {
   title: string
-  type: 'Single' | 'EP' | 'Album'
+  artist: string
   year: string
   gradient: string
   image: string | null
   href: string
 }
 
-export type FilmTvPlacement = {
-  title: string
-  type: 'Film' | 'Television' | 'Documentary' | 'Series'
-  year: string
-  description: string
-}
-
-export type MusicHighlightStat = {
+export type BillboardStat = {
   value: string
   label: string
-  description: string
 }
 
 export type PrivatePillar = {
