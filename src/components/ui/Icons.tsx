@@ -176,6 +176,56 @@ export function MailIcon() {
   )
 }
 
+/* Booking page icons */
+
+export function CalendarIcon() {
+  return (
+    <svg {...props}>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <line x1="3" y1="9" x2="21" y2="9" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="7" y1="14" x2="10" y2="14" />
+    </svg>
+  )
+}
+
+export function MessageIcon() {
+  return (
+    <svg {...props}>
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  )
+}
+
+export function LockIcon() {
+  return (
+    <svg {...props}>
+      <rect x="3" y="11" width="18" height="11" rx="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      <circle cx="12" cy="16" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function ClockIcon() {
+  return (
+    <svg {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
+export function ShieldCheckIcon() {
+  return (
+    <svg {...props}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <polyline points="9 12 11 14 15 10" />
+    </svg>
+  )
+}
+
 /* Platform icons — used in music streaming section */
 
 export function AppleMusicIcon({ size = 24 }: { size?: number }) {

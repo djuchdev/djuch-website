@@ -90,3 +90,16 @@ export type MusicHighlightStat = {
   label: string
   description: string
 }
+
+export type BookingStep = {
+  number: string
+  title: string
+  description: string
+  icon: 'calendar' | 'message' | 'headphones' | 'note'
+}
+
+export type TrustIndicator = {
+  icon: 'lock' | 'clock' | 'shield'
+  line1: string
+  line2: string
+}

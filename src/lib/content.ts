@@ -2,6 +2,7 @@ import type {
   NavLink, BrandLogo, Service, Stat, JourneyStat, PressOutlet,
   ClientBrand, ClientStory,
   StreamingPlatform, Mix, MusicRelease, FilmTvPlacement, MusicHighlightStat,
+  BookingStep, TrustIndicator,
 } from '@/types'
 
 export const nav = {
@@ -505,4 +506,118 @@ export const footer = {
 export const siteMetadata = {
   title: 'DJ UCH — Unforgettable Experiences',
   description: 'For over two decades, DJ UCH has transformed events into unforgettable experiences. Corporate events, private celebrations, live piano, and more.',
+}
+
+// ─── Booking Page ───────────────────────────────────────────────────────────────
+
+export const booking = {
+  hero: {
+    eyebrow: 'Book UCH',
+    headlineLines: ["Let's Create", 'Something'],
+    headlineGold: 'Unforgettable.',
+    body: "Tell me about your event and I'll handle the rest. From the first conversation to the final song, I've got you.",
+    cta: { label: 'Check Availability', href: '#booking-form' },
+    image: null as string | null,
+    imageAlt: 'UCH at a luxury event',
+  },
+
+  steps: [
+    {
+      number: '01',
+      title: 'Check Availability',
+      description: 'Fill out the form with your event details and date.',
+      icon: 'calendar' as const,
+    },
+    {
+      number: '02',
+      title: 'We Connect',
+      description: "We'll confirm availability and schedule a quick call.",
+      icon: 'message' as const,
+    },
+    {
+      number: '03',
+      title: 'Plan Your Experience',
+      description: 'We customize every detail to match your vision.',
+      icon: 'headphones' as const,
+    },
+    {
+      number: '04',
+      title: 'You Enjoy The Moment',
+      description: 'I handle everything so you can be fully present.',
+      icon: 'note' as const,
+    },
+  ] satisfies BookingStep[],
+
+  form: {
+    eyebrow: 'Book An Experience',
+    subheading: "Complete the form below and we'll be in touch shortly.",
+    eventTypes: [
+      'Corporate Event',
+      'Private Event',
+      'Wedding',
+      'Birthday Celebration',
+      'Milestone Event',
+      'Mr. Martin Piano',
+      'Luxury Hospitality',
+      'Other',
+    ],
+    budgetRanges: [
+      'Under $5,000',
+      '$5,000 – $10,000',
+      '$10,000 – $25,000',
+      '$25,000 – $50,000',
+      '$50,000+',
+      "Let's Discuss",
+    ],
+    trustIndicators: [
+      { icon: 'lock'  as const, line1: 'Your Information', line2: 'Is 100% Secure'       },
+      { icon: 'clock' as const, line1: 'We Respond Within', line2: '24 Business Hours'   },
+      { icon: 'shield' as const, line1: 'No Obligation,',  line2: 'Ever.'                },
+    ] satisfies TrustIndicator[],
+  },
+
+  testimonial: {
+    eyebrow: 'What Clients Say',
+    quote: "From start to finish, Uch made our event effortless. The energy, the professionalism, the attention to detail — our guests are still talking about it.",
+    author: 'Jennifer M.',
+    title: 'Event Director, Fortune 500 Company',
+    leftImage:  '/images/corporate-events.png' as string | null,
+    rightImage: '/images/private-events.png'   as string | null,
+  },
+
+  experiences: {
+    eyebrow: 'Experiences Tailored To You',
+    items: [
+      {
+        icon: 'headphones' as const,
+        title: 'Corporate Events',
+        description: 'Elevate your brand and impress your guests with seamless entertainment.',
+      },
+      {
+        icon: 'people' as const,
+        title: 'Private Events',
+        description: 'Weddings, birthdays, milestone celebrations and more. Made unforgettable.',
+      },
+      {
+        icon: 'piano' as const,
+        title: 'Mr. Martin Piano',
+        description: 'Live piano, comedy, and interaction that creates a one-of-a-kind experience.',
+      },
+      {
+        icon: 'waveform' as const,
+        title: 'Music & Mixes',
+        description: 'Curated mixes and custom sets for your party, brand, or creative project.',
+      },
+    ],
+  },
+
+  cta: {
+    eyebrow: 'Ready to Get Started?',
+    headline: "Let's Create An Atmosphere They Won't Forget.",
+    body: "I'm here to make your vision happen.",
+    button: { label: 'Get in Touch', href: '#booking-form' },
+    image: '/images/cta-portrait.png' as string | null,
+    imageAlt: 'DJ UCH portrait',
+    signature: '/images/uch-signature.png' as string | null,
+  },
 }
