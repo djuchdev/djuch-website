@@ -129,3 +129,36 @@ export type TrustIndicator = {
   line1: string
   line2: string
 }
+
+export type VideoReel = {
+  title: string
+  category: string
+  description: string
+  duration: string
+  thumbnail: string | null
+  gradient: string
+  href: string
+}
+
+export type PerformanceItem = {
+  title: string
+  venue: string
+  thumbnail: string | null
+  gradient: string
+  href: string
+}
+
+export type PressItem = {
+  outlet: string
+  outletStyle: string
+  type: 'podcast' | 'television' | 'interview' | 'article'
+  title: string
+  description: string
+  href: string
+}
+
+export type MediaGalleryItem = {
+  image: string | null
+  gradient: string
+  alt: string
+}

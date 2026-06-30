@@ -8,7 +8,7 @@ export default function MusicHero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-brand-black">
 
-      {/* Full-bleed background image */}
+      {/* Full-bleed background */}
       <div className="absolute inset-0">
         {hero.image ? (
           <Image
@@ -21,7 +21,7 @@ export default function MusicHero() {
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-800" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
 
@@ -57,7 +57,6 @@ export default function MusicHero() {
                 {hero.ctas.primary.label} <span aria-hidden>›</span>
               </Button>
 
-              {/* Play-circle secondary CTA */}
               <a
                 href={hero.ctas.secondary.href}
                 className="group inline-flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-200"
@@ -74,8 +73,8 @@ export default function MusicHero() {
             </div>
           </div>
 
-          {/* Right: signature overlay */}
-          <div className="hidden lg:flex items-end justify-end pb-20 pr-4 relative">
+          {/* Right: signature */}
+          <div className="hidden lg:flex items-end justify-end pb-20 pr-4">
             {cta.signature && (
               <div className="relative w-36 h-20 opacity-60">
                 <Image

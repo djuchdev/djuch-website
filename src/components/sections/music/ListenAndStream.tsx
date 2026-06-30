@@ -1,18 +1,14 @@
-import type { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  SpotifyFullIcon, AppleMusicIcon, MixcloudIcon, SoundCloudIcon, YouTubeFullIcon,
-} from '@/components/ui/Icons'
 import { music } from '@/lib/content'
 import type { Mix } from '@/types'
 
-const platformConfig: Record<Mix['platform'], { label: string; icon: ReactNode; color: string }> = {
-  'spotify':     { label: 'Spotify',     icon: <SpotifyFullIcon size={14} />,  color: 'text-[#1DB954]' },
-  'apple-music': { label: 'Apple Music', icon: <AppleMusicIcon size={14} />,   color: 'text-[#FC3C44]' },
-  'mixcloud':    { label: 'Mixcloud',    icon: <MixcloudIcon size={14} />,     color: 'text-[#5000ff]' },
-  'soundcloud':  { label: 'SoundCloud',  icon: <SoundCloudIcon size={14} />,   color: 'text-[#FF5500]' },
-  'youtube':     { label: 'YouTube',     icon: <YouTubeFullIcon size={14} />,  color: 'text-[#FF0000]' },
+const platformBadge: Record<Mix['platform'], { src: string; label: string }> = {
+  'spotify':     { src: '/images/platform-spotify.png',     label: 'Listen on Spotify'     },
+  'apple-music': { src: '/images/platform-apple-music.png', label: 'Listen on Apple Music' },
+  'mixcloud':    { src: '/images/platform-mixcloud.png',    label: 'Listen on Mixcloud'    },
+  'soundcloud':  { src: '/images/platform-soundcloud.png',  label: 'Listen on SoundCloud'  },
+  'youtube':     { src: '/images/platform-youtube.png',     label: 'Listen on YouTube'     },
 }
 
 export default function ListenAndStream() {
@@ -35,7 +31,7 @@ export default function ListenAndStream() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {mixes.items.map((mix) => {
-            const platform = platformConfig[mix.platform]
+            const badge = platformBadge[mix.platform]
             return (
               <Link
                 key={mix.title}
@@ -80,12 +76,14 @@ export default function ListenAndStream() {
                     {mix.description}
                   </p>
 
-                  {/* Platform badge */}
-                  <div className={`flex items-center gap-1.5 mt-1 ${platform.color}`}>
-                    {platform.icon}
-                    <span className="text-[9px] font-semibold tracking-[0.12em] uppercase">
-                      {platform.label}
-                    </span>
+                  {/* Platform badge image */}
+                  <div className="relative mt-2 h-7 w-28">
+                    <Image
+                      src={badge.src}
+                      fill
+                      alt={badge.label}
+                      className="object-contain object-left"
+                    />
                   </div>
                 </div>
               </Link>

@@ -5,6 +5,7 @@ import type {
   BookingStep, TrustIndicator,
   CorporatePillar, EventTypeItem, GalleryItem, CorporateTestimonial,
   PrivatePillar, PrivateCelebration,
+  VideoReel, PerformanceItem, PressItem, MediaGalleryItem,
 } from '@/types'
 
 export const nav = {
@@ -307,7 +308,7 @@ export const music = {
       primary:   { label: 'Stream Now',  href: '#listen' },
       secondary: { label: 'Watch Video', href: '#'       },
     },
-    image: '/images/music-hero.png' as string | null,
+    image: '/images/music-hero-v2.png' as string | null,
     imageAlt: 'UCH behind the decks at a world-class event',
   },
 
@@ -697,6 +698,166 @@ export const siteMetadata = {
   description: 'For over two decades, DJ UCH has transformed events into unforgettable experiences. Corporate events, private celebrations, live piano, and more.',
 }
 
+// ─── Media Page ─────────────────────────────────────────────────────────────────
+
+export const media = {
+  hero: {
+    eyebrow: 'Media',
+    headlineLines: ['See The', 'Atmosphere'],
+    headlineGold: 'In Motion.',
+    body: 'Every event tells a different story. Watch how atmosphere, connection, and elegance come together to create something unforgettable.',
+    ctas: {
+      primary:   { label: 'Watch Showreel',      href: '#showreel'  },
+      secondary: { label: 'Book an Experience',  href: '/booking'   },
+    },
+    image:    '/images/about-hero.png' as string | null,
+    imageAlt: 'UCH performing at a luxury event',
+  },
+
+  showreel: {
+    eyebrow:   'Featured Showreel',
+    headline:  'The Full Experience.',
+    body:      'Two decades of atmosphere, connection, and unforgettable moments — captured in one cinematic showreel.',
+    videoId:   '' as string,
+    videoHref: '#' as string,
+    thumbnail: '/images/music-hero-v2.png' as string | null,
+  },
+
+  reels: {
+    eyebrow:  'Experience Reels',
+    headline: 'Every Event. A Different Story.',
+    items: [
+      {
+        title:       'Corporate Events',
+        category:    'Corporate',
+        description: 'Atmosphere that impresses clients, elevates brands, and turns business into pleasure.',
+        duration:    '2:34',
+        thumbnail:   '/images/corporate-events.png' as string | null,
+        gradient:    'from-violet-950 via-indigo-900/60 to-zinc-950',
+        href:        '#',
+      },
+      {
+        title:       'Private Events',
+        category:    'Private',
+        description: 'Intimate celebrations transformed into lifelong memories for every guest in the room.',
+        duration:    '1:58',
+        thumbnail:   '/images/private-events.png' as string | null,
+        gradient:    'from-amber-950 via-orange-900/50 to-zinc-950',
+        href:        '#',
+      },
+      {
+        title:       'Mr. Martin Piano',
+        category:    'Piano',
+        description: 'Live piano, original comedy, and interactive performance that creates a one-of-a-kind experience.',
+        duration:    '3:12',
+        thumbnail:   '/images/mr-martin-piano.png' as string | null,
+        gradient:    'from-emerald-950 via-teal-900/50 to-zinc-950',
+        href:        '#',
+      },
+      {
+        title:       'Live DJ Performances',
+        category:    'DJ',
+        description: 'High-energy performances that fill every room, every dance floor, and every moment.',
+        duration:    '2:47',
+        thumbnail:   '/images/booking-testimonial-2.png' as string | null,
+        gradient:    'from-rose-950 via-pink-900/40 to-zinc-950',
+        href:        '#',
+      },
+    ] satisfies VideoReel[],
+  },
+
+  performances: {
+    eyebrow:  'Featured Performances',
+    headline: 'From Stage to Celebration.',
+    items: [
+      { title: 'Conference Keynote',  venue: 'Fortune 500 Annual Summit',   thumbnail: '/images/client-hero.png'            as string | null, gradient: 'from-violet-900/60 to-zinc-950', href: '#' },
+      { title: 'Wedding Reception',   venue: 'The Grand Ballroom, NYC',     thumbnail: '/images/client-story-1.png'         as string | null, gradient: 'from-rose-900/50 to-zinc-950',   href: '#' },
+      { title: 'Lounge Experience',   venue: 'W Hotels — South Beach',      thumbnail: '/images/booking-testimonial-1.png'  as string | null, gradient: 'from-teal-900/50 to-zinc-950',   href: '#' },
+      { title: 'Festival Stage',      venue: 'International Music Festival',thumbnail: '/images/about-connection.png'       as string | null, gradient: 'from-amber-900/60 to-zinc-950',  href: '#' },
+      { title: 'Corporate Gala',      venue: 'Caesars Entertainment',       thumbnail: '/images/client-story-2.png'         as string | null, gradient: 'from-indigo-900/60 to-zinc-950', href: '#' },
+      { title: 'Piano Session',       venue: 'Private Penthouse Event',     thumbnail: '/images/mr-martin-piano.png'        as string | null, gradient: 'from-emerald-900/50 to-zinc-950',href: '#' },
+    ] satisfies PerformanceItem[],
+  },
+
+  gallery: {
+    eyebrow:  'Photography',
+    headline: 'The Moments Between Moments.',
+    items: [
+      { image: '/images/booking-hero.png'              as string | null, gradient: 'from-amber-950 via-orange-900/60 to-zinc-950',  alt: 'UCH commanding the room at a gala'   },
+      { image: '/images/about-story.png'               as string | null, gradient: 'from-violet-950 via-purple-900/60 to-zinc-950', alt: 'Stage lighting at a corporate event'  },
+      { image: '/images/client-story-3.png'            as string | null, gradient: 'from-rose-950 via-red-900/40 to-zinc-950',      alt: 'Dance floor at a private celebration' },
+      { image: '/images/music-recognition-portrait.png'as string | null, gradient: 'from-teal-950 via-cyan-900/50 to-zinc-950',    alt: 'UCH portrait at a luxury event'       },
+      { image: '/images/about-connection.png'          as string | null, gradient: 'from-indigo-950 via-blue-900/50 to-zinc-950',   alt: 'UCH connecting with guests'           },
+      { image: '/images/cta-portrait.png'              as string | null, gradient: 'from-emerald-950 via-green-900/40 to-zinc-950', alt: 'UCH portrait'                         },
+    ] satisfies MediaGalleryItem[],
+  },
+
+  press: {
+    eyebrow:  'Press & Interviews',
+    headline: 'In The Conversation.',
+    items: [
+      {
+        outlet:      'Billboard',
+        outletStyle: 'font-display font-extrabold text-2xl tracking-tight',
+        type:        'article' as const,
+        title:       'Chart-Topping DJs Reshaping the Event Industry',
+        description: 'How UCH built a career at the intersection of music and luxury hospitality.',
+        href:        '#',
+      },
+      {
+        outlet:      'Forbes',
+        outletStyle: 'font-sans font-bold text-2xl tracking-tight',
+        type:        'article' as const,
+        title:       'The New Face of Luxury Entertainment',
+        description: 'Inside the business of creating unforgettable atmospheres for the world\'s top brands.',
+        href:        '#',
+      },
+      {
+        outlet:      'Entertainment Tonight',
+        outletStyle: 'font-sans font-semibold text-lg tracking-wide',
+        type:        'television' as const,
+        title:       'Celebrity Events & the Music Behind Them',
+        description: 'A behind-the-scenes look at the artists who shape the most exclusive events.',
+        href:        '#',
+      },
+      {
+        outlet:      'The Breakfast Club',
+        outletStyle: 'font-display font-bold text-xl tracking-tight',
+        type:        'podcast' as const,
+        title:       'Music, Events & the Art of the Atmosphere',
+        description: 'UCH sits down to talk two decades in the industry, Billboard success, and what\'s next.',
+        href:        '#',
+      },
+      {
+        outlet:      'Luxury Living',
+        outletStyle: 'font-sans font-light text-2xl tracking-[0.12em] uppercase',
+        type:        'article' as const,
+        title:       'The DJ Behind the Brand: UCH\'s Story',
+        description: 'From small venues to Fortune 500 stages — a profile of one of the industry\'s most sought-after entertainers.',
+        href:        '#',
+      },
+      {
+        outlet:      'Variety',
+        outletStyle: 'font-sans italic font-bold text-2xl',
+        type:        'interview' as const,
+        title:       'Film & TV Music: The UCH Sessions',
+        description: 'How UCH\'s productions found their way into major network placements.',
+        href:        '#',
+      },
+    ] satisfies PressItem[],
+  },
+
+  cta: {
+    eyebrow:   'Ready To Experience It Live?',
+    headline:  "Let's Create Something They'll Never Forget.",
+    body:      "Every event is a blank canvas. I bring the atmosphere.",
+    button:    { label: 'Book UCH', href: '/booking' },
+    image:     '/images/cta-portrait.png' as string | null,
+    imageAlt:  'DJ UCH portrait',
+    signature: '/images/uch-signature.png' as string | null,
+  },
+}
+
 // ─── Booking Page ───────────────────────────────────────────────────────────────
 
 export const booking = {
@@ -706,7 +867,7 @@ export const booking = {
     headlineGold: 'Unforgettable.',
     body: "Tell me about your event and I'll handle the rest. From the first conversation to the final song, I've got you.",
     cta: { label: 'Check Availability', href: '#booking-form' },
-    image: null as string | null,
+    image: '/images/booking-hero.png' as string | null,
     imageAlt: 'UCH at a luxury event',
   },
 
@@ -770,8 +931,8 @@ export const booking = {
     quote: "From start to finish, Uch made our event effortless. The energy, the professionalism, the attention to detail — our guests are still talking about it.",
     author: 'Jennifer M.',
     title: 'Event Director, Fortune 500 Company',
-    leftImage:  '/images/corporate-events.png' as string | null,
-    rightImage: '/images/private-events.png'   as string | null,
+    leftImage:  '/images/booking-testimonial-2.png' as string | null,
+    rightImage: '/images/booking-testimonial-1.png' as string | null,
   },
 
   experiences: {
