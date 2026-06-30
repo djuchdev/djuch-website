@@ -225,7 +225,7 @@ export const clients = {
     headlineLines: ['Trusted by Brands.'],
     headlineGold: 'Loved by People.',
     body: "For over two decades, I've created unforgettable atmospheres for some of the world's most prestigious brands, venues, and private events — from intimate celebrations to stadium-scale productions.",
-    image: null as string | null,
+    image: '/images/client-hero.png' as string | null,
     imageAlt: 'UCH performing at a world-class corporate event',
   },
 
@@ -260,7 +260,7 @@ export const clients = {
         company: 'Global Financial Services Firm',
         eventType: 'Corporate Event',
         detail: '500+ Guests · Manhattan, New York',
-        image: '/images/corporate-events.png',
+        image: '/images/client-story-1.png',
         imageAlt: 'Corporate gala in a New York venue',
       },
       {
@@ -269,7 +269,7 @@ export const clients = {
         company: 'W Hotels Worldwide',
         eventType: 'Hospitality Residency',
         detail: 'Multiple Residencies · Global',
-        image: '/images/private-events.png',
+        image: '/images/client-story-2.png',
         imageAlt: 'Luxury hotel event with guests',
       },
       {
@@ -278,7 +278,7 @@ export const clients = {
         company: 'Miami, Florida',
         eventType: 'Private Celebration',
         detail: 'Intimate Evening · Miami, FL',
-        image: '/images/mr-martin-piano.png',
+        image: '/images/client-story-3.png',
         imageAlt: 'Private luxury celebration',
       },
     ] satisfies ClientStory[],
