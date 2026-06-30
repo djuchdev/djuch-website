@@ -307,7 +307,7 @@ export const music = {
       primary:   { label: 'Stream Now',  href: '#listen' },
       secondary: { label: 'Watch Video', href: '#'       },
     },
-    image: '/images/music-and-mixes.png' as string | null,
+    image: '/images/music-hero.png' as string | null,
     imageAlt: 'UCH behind the decks at a world-class event',
   },
 
@@ -321,7 +321,7 @@ export const music = {
         description: 'Smooth vibes for sophisticated nights.',
         platform: 'spotify' as const,
         gradient: 'from-amber-950 via-stone-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-mix-lounge-nights.png' as string | null,
         href: '#',
       },
       {
@@ -329,7 +329,7 @@ export const music = {
         description: 'Uplifting house and electronic selections.',
         platform: 'apple-music' as const,
         gradient: 'from-indigo-950 via-zinc-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-mix-city-lights.png' as string | null,
         href: '#',
       },
       {
@@ -337,7 +337,7 @@ export const music = {
         description: 'High energy mixes to get the party going.',
         platform: 'mixcloud' as const,
         gradient: 'from-purple-950 via-zinc-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-mix-party-starters.png' as string | null,
         href: '#',
       },
       {
@@ -345,7 +345,7 @@ export const music = {
         description: 'Chill beats and warm sunset energy.',
         platform: 'soundcloud' as const,
         gradient: 'from-orange-950 via-stone-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-mix-sunset-sessions.png' as string | null,
         href: '#',
       },
       {
@@ -353,7 +353,7 @@ export const music = {
         description: 'The perfect soundtrack for the ride.',
         platform: 'youtube' as const,
         gradient: 'from-teal-950 via-zinc-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-mix-road-trip.png' as string | null,
         href: '#',
       },
     ] satisfies Mix[],
@@ -370,7 +370,7 @@ export const music = {
         artist: 'DJ Uch',
         year: '2023',
         gradient: 'from-zinc-800 via-zinc-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-release-higher.png' as string | null,
         href: '#',
       },
       {
@@ -378,7 +378,7 @@ export const music = {
         artist: 'DJ Uch ft. Lexi',
         year: '2022',
         gradient: 'from-stone-800 via-zinc-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-release-tonight.png' as string | null,
         href: '#',
       },
       {
@@ -386,7 +386,7 @@ export const music = {
         artist: 'DJ Uch',
         year: '2021',
         gradient: 'from-red-950 via-zinc-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-release-feeling-you.png' as string | null,
         href: '#',
       },
       {
@@ -394,7 +394,7 @@ export const music = {
         artist: 'DJ Uch',
         year: '2020',
         gradient: 'from-zinc-700 via-zinc-800 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-release-us.png' as string | null,
         href: '#',
       },
       {
@@ -402,7 +402,7 @@ export const music = {
         artist: 'DJ Uch',
         year: '2019',
         gradient: 'from-amber-950 via-stone-900 to-zinc-950',
-        image: null as string | null,
+        image: '/images/music-release-be-alright.png' as string | null,
         href: '#',
       },
     ] satisfies MusicRelease[],
@@ -420,7 +420,7 @@ export const music = {
       button: { label: 'View Chart History', href: '#' },
     },
     portrait: {
-      image: null as string | null,
+      image: '/images/music-recognition-portrait.png' as string | null,
       imageAlt: 'UCH portrait',
     },
     placements: {
