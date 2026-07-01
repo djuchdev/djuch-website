@@ -21,8 +21,8 @@ const experienceLinks: Record<string, { href: string; cta: string; eyebrow: stri
     eyebrow: 'For Celebrations',
   },
   'Mr. Martin Piano': {
-    href: '/booking',
-    cta: 'Ask About Piano',
+    href: '/experiences/mr-martin-piano',
+    cta: 'Mr. Martin Piano',
     eyebrow: 'Live Piano',
   },
   'Music & Mixes': {

@@ -2,6 +2,10 @@ export type NavLink = {
   label: string
   href: string
   hasDropdown?: boolean
+  dropdown?: {
+    label: string
+    href: string
+  }[]
 }
 
 export type BrandLogo = {

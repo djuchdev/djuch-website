@@ -11,7 +11,16 @@ import type {
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
   links: [
-    { label: 'Experiences', href: '/experiences', hasDropdown: false },
+    {
+      label: 'Experiences',
+      href: '/experiences',
+      hasDropdown: true,
+      dropdown: [
+        { label: 'Corporate Events', href: '/experiences/corporate' },
+        { label: 'Private Events', href: '/experiences/private' },
+        { label: 'Mr. Martin Piano', href: '/experiences/mr-martin-piano' },
+      ],
+    },
     { label: 'About UCH', href: '/about' },
     { label: 'Clients', href: '/clients' },
     { label: 'Media', href: '/media' },
@@ -77,7 +86,7 @@ export const services: Service[] = [
   {
     title: 'Mr. Martin Piano',
     description: 'An interactive blend of live piano, comedy, and energy. High-end lounge entertainment that\'s anything but ordinary.',
-    href: '/experiences#piano',
+    href: '/experiences/mr-martin-piano',
     icon: 'piano',
     image: '/images/mr-martin-piano.png',
   },
@@ -533,7 +542,7 @@ export const privateEvents = {
         description: 'Elevate your space into the perfect experience.',
       },
     ] satisfies PrivateCelebration[],
-    image:    null as string | null,
+    image:    '/images/private-events.png' as string | null,
     imageAlt: 'Elegant private celebration with candlelight and florals',
   },
 
@@ -541,11 +550,11 @@ export const privateEvents = {
     eyebrow: 'Moments That Speak For Themselves',
     button:  { label: 'View More Gallery', href: '#' },
     items: [
-      { image: null as string | null, gradient: 'from-amber-950 via-amber-900/60 to-zinc-900',    alt: 'First dance sparkler exit'            },
-      { image: null as string | null, gradient: 'from-yellow-950 via-amber-800/50 to-zinc-900',  alt: 'Candlelit intimate celebration'        },
-      { image: null as string | null, gradient: 'from-violet-950 via-amber-900/35 to-zinc-900',  alt: 'Dance floor celebration'               },
-      { image: null as string | null, gradient: 'from-orange-950 via-amber-900/50 to-zinc-900',  alt: 'Elegant tablescape with florals'        },
-      { image: null as string | null, gradient: 'from-rose-950 via-amber-900/40 to-zinc-900',    alt: 'String lights at outdoor reception'    },
+      { image: '/images/private-events.png'             as string | null, gradient: 'from-amber-950 via-amber-900/60 to-zinc-900',   alt: 'First dance sparkler exit'            },
+      { image: '/images/client-story-3.png'             as string | null, gradient: 'from-yellow-950 via-amber-800/50 to-zinc-900', alt: 'Candlelit intimate celebration'        },
+      { image: '/images/about-connection.png'           as string | null, gradient: 'from-violet-950 via-amber-900/35 to-zinc-900', alt: 'Dance floor celebration'               },
+      { image: '/images/booking-testimonial-1.png'      as string | null, gradient: 'from-orange-950 via-amber-900/50 to-zinc-900', alt: 'Elegant tablescape with florals'        },
+      { image: '/images/booking-testimonial-2.png'      as string | null, gradient: 'from-rose-950 via-amber-900/40 to-zinc-900',   alt: 'String lights at outdoor reception'    },
     ],
   },
 
@@ -654,10 +663,10 @@ export const corporate = {
   gallery: {
     eyebrow: 'Corporate Event Moments',
     items: [
-      { image: null, gradient: 'from-blue-950 via-blue-900/60 to-zinc-900',    alt: 'Corporate ballroom event with stage lighting' },
-      { image: null, gradient: 'from-amber-950 via-amber-900/50 to-zinc-900',  alt: 'Gala dinner with candlelit tables'             },
-      { image: null, gradient: 'from-violet-950 via-violet-900/50 to-zinc-900', alt: 'Awards ceremony with spotlights'              },
-      { image: null, gradient: 'from-teal-950 via-teal-900/50 to-zinc-900',    alt: 'Product launch event with lighting'            },
+      { image: '/images/corporate-events.png', gradient: 'from-blue-950 via-blue-900/60 to-zinc-900',     alt: 'Corporate ballroom event with stage lighting' },
+      { image: '/images/client-story-1.png',    gradient: 'from-amber-950 via-amber-900/50 to-zinc-900',   alt: 'Gala dinner with candlelit tables'             },
+      { image: '/images/about-story.png',       gradient: 'from-violet-950 via-violet-900/50 to-zinc-900', alt: 'Awards ceremony with spotlights'              },
+      { image: '/images/booking-hero.png',      gradient: 'from-teal-950 via-teal-900/50 to-zinc-900',     alt: 'Product launch event with lighting'            },
     ] satisfies GalleryItem[],
   },
 

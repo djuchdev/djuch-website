@@ -45,20 +45,41 @@ export default function Navbar() {
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-7 lg:gap-10">
-              {nav.links.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="flex items-center gap-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-white/65 hover:text-white transition-colors duration-150"
-                >
-                  {link.label}
-                  {link.hasDropdown && (
-                    <span className="text-white/35">
-                      <ChevronDownIcon />
-                    </span>
-                  )}
-                </Link>
-              ))}
+              {nav.links.map((link) => {
+                const hasDropdown = link.hasDropdown && link.dropdown?.length
+
+                return (
+                  <div key={link.label} className="relative group py-8">
+                    <Link
+                      href={link.href}
+                      className="flex items-center gap-1 text-[11px] font-semibold tracking-[0.18em] uppercase text-white/65 hover:text-white transition-colors duration-150"
+                    >
+                      {link.label}
+                      {hasDropdown && (
+                        <span className="text-white/35 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180">
+                          <ChevronDownIcon />
+                        </span>
+                      )}
+                    </Link>
+
+                    {hasDropdown && (
+                      <div className="absolute left-1/2 top-full w-64 -translate-x-1/2 pt-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-150 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0">
+                        <div className="border border-gold/25 bg-brand-black/95 shadow-2xl shadow-black/40 backdrop-blur-sm">
+                          {link.dropdown?.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="block border-b border-white/5 px-5 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white/65 transition-colors last:border-b-0 hover:bg-gold hover:text-black focus:bg-gold focus:text-black"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </nav>
 
             {/* Desktop CTA */}
@@ -89,14 +110,30 @@ export default function Navbar() {
       >
         <nav className="flex flex-col gap-6 mt-6">
           {nav.links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-2xl font-display font-bold uppercase text-white hover:text-gold transition-colors"
-            >
-              {link.label}
-            </Link>
+            <div key={link.label}>
+              <Link
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-2xl font-display font-bold uppercase text-white hover:text-gold transition-colors"
+              >
+                {link.label}
+              </Link>
+
+              {link.hasDropdown && link.dropdown?.length && (
+                <div className="mt-4 flex flex-col gap-3 border-l border-gold/35 pl-5">
+                  {link.dropdown.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="text-xs font-bold uppercase tracking-[0.22em] text-white/55 hover:text-gold transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
         <div className="mt-auto">
