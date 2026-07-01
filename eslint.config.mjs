@@ -12,6 +12,15 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local OpenClaw runtime/workspace folders - not app source.
+    ".openclaw-agent/**",
+    "main/**",
+    "openclaw-workspace-state.json",
+    "HEARTBEAT.md",
+    "IDENTITY.md",
+    "SOUL.md",
+    "TOOLS.md",
+    "USER.md",
   ]),
 ]);
 

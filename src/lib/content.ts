@@ -11,7 +11,7 @@ import type {
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
   links: [
-    { label: 'Experiences', href: '/clients', hasDropdown: false },
+    { label: 'Experiences', href: '/experiences', hasDropdown: false },
     { label: 'About UCH', href: '/about' },
     { label: 'Clients', href: '/clients' },
     { label: 'Media', href: '/media' },
@@ -63,14 +63,14 @@ export const services: Service[] = [
   {
     title: 'Corporate Events',
     description: 'I help brands connect, engage, and impress. Creating the right atmosphere for clients, teams, and partners to do business and celebrate.',
-    href: '/experiences#corporate',
+    href: '/experiences/corporate',
     icon: 'headphones',
     image: '/images/corporate-events.png',
   },
   {
     title: 'Private Events',
     description: 'Weddings, birthdays, milestone celebrations and more. I create unforgettable experiences you and your guests will remember for years to come.',
-    href: '/experiences#private',
+    href: '/experiences/private',
     icon: 'people',
     image: '/images/private-events.png',
   },
