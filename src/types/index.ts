@@ -150,6 +150,7 @@ export type PerformanceItem = {
   thumbnail: string | null
   gradient: string
   href: string
+  videoSrc?: string
 }
 
 export type PressItem = {

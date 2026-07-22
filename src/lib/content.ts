@@ -10,6 +10,8 @@ import type {
 
 const mixAudioBaseUrl = process.env.NEXT_PUBLIC_MIX_AUDIO_BASE_URL || ''
 const mixAudio = (fileName: string) => mixAudioBaseUrl ? `${mixAudioBaseUrl}/mixes/${fileName}` : ''
+const mediaAssetBaseUrl = process.env.NEXT_PUBLIC_MEDIA_ASSET_BASE_URL || mixAudioBaseUrl
+const mediaAsset = (path: string) => mediaAssetBaseUrl ? `${mediaAssetBaseUrl}/${path}` : ''
 
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
@@ -786,7 +788,14 @@ export const media = {
       { title: 'Wedding Reception',   venue: 'The Grand Ballroom, NYC',     thumbnail: '/images/client-story-1.png'         as string | null, gradient: 'from-rose-900/50 to-zinc-950',   href: '#' },
       { title: 'Lounge Experience',   venue: 'W Hotels — South Beach',      thumbnail: '/images/booking-testimonial-1.png'  as string | null, gradient: 'from-teal-900/50 to-zinc-950',   href: '#' },
       { title: 'Festival Stage',      venue: 'International Music Festival',thumbnail: '/images/about-connection.png'       as string | null, gradient: 'from-amber-900/60 to-zinc-950',  href: '#' },
-      { title: 'Corporate Gala',      venue: 'Caesars Entertainment',       thumbnail: '/images/client-story-2.png'         as string | null, gradient: 'from-indigo-900/60 to-zinc-950', href: '#' },
+      {
+        title: 'Corporate Gala',
+        venue: 'PSI Seminars Gala — Santa Fe',
+        thumbnail: '/images/video-thumbnails/psi-seminars-gala-santa-fe.jpg' as string | null,
+        gradient: 'from-indigo-900/60 to-zinc-950',
+        href: mediaAsset('videos/psi-seminars-gala-santa-fe.mp4'),
+        videoSrc: mediaAsset('videos/psi-seminars-gala-santa-fe.mp4'),
+      },
       { title: 'Piano Session',       venue: 'Private Penthouse Event',     thumbnail: '/images/mr-martin-piano.png'        as string | null, gradient: 'from-emerald-900/50 to-zinc-950',href: '#' },
     ] satisfies PerformanceItem[],
   },
