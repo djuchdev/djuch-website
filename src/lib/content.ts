@@ -8,6 +8,9 @@ import type {
   VideoReel, PerformanceItem, PressItem, MediaGalleryItem,
 } from '@/types'
 
+const mixAudioBaseUrl = process.env.NEXT_PUBLIC_MIX_AUDIO_BASE_URL || ''
+const mixAudio = (fileName: string) => mixAudioBaseUrl ? `${mixAudioBaseUrl}/mixes/${fileName}` : ''
+
 export const nav = {
   logo: { prefix: 'DJ ', name: 'UCH' },
   links: [
@@ -329,42 +332,42 @@ export const music = {
       {
         title: 'Lounge Nights',
         description: 'Smooth vibes for sophisticated nights.',
-        platform: 'spotify' as const,
         gradient: 'from-amber-950 via-stone-900 to-zinc-950',
         image: '/images/music-mix-lounge-nights.png' as string | null,
-        href: '#',
+        audioSrc: mixAudio('lounge-nights.mp3'),
+        duration: '56:02',
       },
       {
         title: 'City Lights',
         description: 'Uplifting house and electronic selections.',
-        platform: 'apple-music' as const,
         gradient: 'from-indigo-950 via-zinc-900 to-zinc-950',
         image: '/images/music-mix-city-lights.png' as string | null,
-        href: '#',
+        audioSrc: mixAudio('city-lights.mp3'),
+        duration: '30:54',
       },
       {
         title: 'Party Starters',
         description: 'High energy mixes to get the party going.',
-        platform: 'mixcloud' as const,
         gradient: 'from-purple-950 via-zinc-900 to-zinc-950',
         image: '/images/music-mix-party-starters.png' as string | null,
-        href: '#',
+        audioSrc: mixAudio('party-starters.mp3'),
+        duration: '23:22',
       },
       {
         title: 'Sunset Sessions',
         description: 'Chill beats and warm sunset energy.',
-        platform: 'soundcloud' as const,
         gradient: 'from-orange-950 via-stone-900 to-zinc-950',
         image: '/images/music-mix-sunset-sessions.png' as string | null,
-        href: '#',
+        audioSrc: mixAudio('sunset-sessions.mp3'),
+        duration: '33:20',
       },
       {
         title: 'Road Trip',
         description: 'The perfect soundtrack for the ride.',
-        platform: 'youtube' as const,
         gradient: 'from-teal-950 via-zinc-900 to-zinc-950',
         image: '/images/music-mix-road-trip.png' as string | null,
-        href: '#',
+        audioSrc: mixAudio('road-trip.mp3'),
+        duration: '65:03',
       },
     ] satisfies Mix[],
   },

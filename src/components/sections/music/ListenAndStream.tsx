@@ -1,21 +1,137 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { music } from '@/lib/content'
-import type { Mix } from '@/types'
+'use client'
 
-const platformBadge: Record<Mix['platform'], { src: string; label: string }> = {
-  'spotify':     { src: '/images/platform-spotify.png',     label: 'Listen on Spotify'     },
-  'apple-music': { src: '/images/platform-apple-music.png', label: 'Listen on Apple Music' },
-  'mixcloud':    { src: '/images/platform-mixcloud.png',    label: 'Listen on Mixcloud'    },
-  'soundcloud':  { src: '/images/platform-soundcloud.png',  label: 'Listen on SoundCloud'  },
-  'youtube':     { src: '/images/platform-youtube.png',     label: 'Listen on YouTube'     },
+import Image from 'next/image'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { music } from '@/lib/content'
+
+function formatTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds <= 0) return '0:00'
+
+  const wholeSeconds = Math.floor(seconds)
+  const minutes = Math.floor(wholeSeconds / 60)
+  const remainingSeconds = wholeSeconds % 60
+
+  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+}
+
+function PlayIcon({ isPlaying }: { isPlaying: boolean }) {
+  if (isPlaying) {
+    return (
+      <svg width={10} height={10} viewBox="0 0 10 10" fill="#0A0A0A" aria-hidden="true">
+        <rect x="2" y="1" width="2" height="8" />
+        <rect x="6" y="1" width="2" height="8" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg width={10} height={10} viewBox="0 0 10 10" fill="#0A0A0A" aria-hidden="true">
+      <polygon points="2,1 9,5 2,9" />
+    </svg>
+  )
 }
 
 export default function ListenAndStream() {
   const { mixes } = music
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const [activeTitle, setActiveTitle] = useState('')
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [errorTitle, setErrorTitle] = useState('')
+
+  const activeMix = useMemo(
+    () => mixes.items.find((mix) => mix.title === activeTitle),
+    [activeTitle, mixes.items],
+  )
+
+  useEffect(() => {
+    if (!audioRef.current) return
+    const player = audioRef.current
+
+    function handleTimeUpdate() {
+      setCurrentTime(player.currentTime)
+    }
+
+    function handleLoadedMetadata() {
+      setDuration(player.duration)
+    }
+
+    function handleEnded() {
+      setIsPlaying(false)
+      setCurrentTime(0)
+    }
+
+    function handlePlay() {
+      setIsPlaying(true)
+    }
+
+    function handlePause() {
+      setIsPlaying(false)
+    }
+
+    function handleError() {
+      if (activeTitle) setErrorTitle(activeTitle)
+      setIsPlaying(false)
+    }
+
+    player.addEventListener('timeupdate', handleTimeUpdate)
+    player.addEventListener('loadedmetadata', handleLoadedMetadata)
+    player.addEventListener('ended', handleEnded)
+    player.addEventListener('play', handlePlay)
+    player.addEventListener('pause', handlePause)
+    player.addEventListener('error', handleError)
+
+    return () => {
+      player.removeEventListener('timeupdate', handleTimeUpdate)
+      player.removeEventListener('loadedmetadata', handleLoadedMetadata)
+      player.removeEventListener('ended', handleEnded)
+      player.removeEventListener('play', handlePlay)
+      player.removeEventListener('pause', handlePause)
+      player.removeEventListener('error', handleError)
+    }
+  }, [activeTitle])
+
+  async function toggleMix(mix: typeof mixes.items[number]) {
+    if (!mix.audioSrc) {
+      setErrorTitle(mix.title)
+      return
+    }
+
+    const audio = audioRef.current
+    if (!audio) return
+
+    setErrorTitle('')
+
+    if (activeTitle === mix.title) {
+      if (audio.paused) {
+        await audio.play().catch(() => setErrorTitle(mix.title))
+      } else {
+        audio.pause()
+      }
+      return
+    }
+
+    setActiveTitle(mix.title)
+    setCurrentTime(0)
+    setDuration(0)
+    audio.src = mix.audioSrc
+    audio.load()
+    await audio.play().catch(() => setErrorTitle(mix.title))
+  }
+
+  function seek(value: string) {
+    const audio = audioRef.current
+    if (!audio) return
+
+    const nextTime = Number(value)
+    audio.currentTime = nextTime
+    setCurrentTime(nextTime)
+  }
 
   return (
     <section id="listen" className="bg-brand-dark border-t border-gold/30">
+      <audio ref={audioRef} preload="metadata" />
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 text-center">
@@ -28,15 +144,21 @@ export default function ListenAndStream() {
       </div>
 
       {/* 5-col mix grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {mixes.items.map((mix) => {
-            const badge = platformBadge[mix.platform]
+            const isActive = activeTitle === mix.title
+            const showPause = isActive && isPlaying
+            const activeDuration = duration || 0
+            const progressMax = activeDuration > 0 ? activeDuration : 1
+            const progressValue = isActive ? Math.min(currentTime, progressMax) : 0
+
             return (
-              <Link
+              <article
                 key={mix.title}
-                href={mix.href}
-                className="group flex flex-col bg-brand-black border border-white/5 hover:border-gold/20 transition-all duration-300 overflow-hidden"
+                className={`group flex flex-col bg-brand-black border transition-all duration-300 overflow-hidden ${
+                  isActive ? 'border-gold/40' : 'border-white/5 hover:border-gold/20'
+                }`}
               >
                 {/* Image area */}
                 <div className="relative aspect-square overflow-hidden">
@@ -59,12 +181,15 @@ export default function ListenAndStream() {
                   {/* Hover scrim */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
-                  {/* Play button — bottom right */}
-                  <div className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-gold flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg">
-                    <svg width={10} height={10} viewBox="0 0 10 10" fill="#0A0A0A">
-                      <polygon points="2,1 9,5 2,9" />
-                    </svg>
-                  </div>
+                  {/* Play button */}
+                  <button
+                    type="button"
+                    onClick={() => void toggleMix(mix)}
+                    className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-gold flex items-center justify-center opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-gold/70 focus:ring-offset-2 focus:ring-offset-black"
+                    aria-label={`${showPause ? 'Pause' : 'Play'} ${mix.title}`}
+                  >
+                    <PlayIcon isPlaying={showPause} />
+                  </button>
                 </div>
 
                 {/* Card body */}
@@ -76,32 +201,40 @@ export default function ListenAndStream() {
                     {mix.description}
                   </p>
 
-                  {/* Platform badge image */}
-                  <div className="relative mt-2 h-7 w-28">
-                    <Image
-                      src={badge.src}
-                      fill
-                      alt={badge.label}
-                      className="object-contain object-left"
+                  <div className="mt-2 min-h-12">
+                    <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.16em] text-zinc-600">
+                      <span>{isActive ? formatTime(currentTime) : 'Ready'}</span>
+                      <span>{isActive && duration ? formatTime(duration) : mix.duration}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max={progressMax}
+                      step="1"
+                      value={progressValue}
+                      onChange={(event) => seek(event.target.value)}
+                      disabled={!isActive}
+                      aria-label={`Seek ${mix.title}`}
+                      className="mt-2 h-1 w-full appearance-none bg-white/10 accent-gold disabled:opacity-50"
                     />
+                    {errorTitle === mix.title && (
+                      <p className="mt-2 text-[10px] leading-relaxed text-red-400">
+                        Playback is not available yet.
+                      </p>
+                    )}
                   </div>
                 </div>
-              </Link>
+              </article>
             )
           })}
         </div>
       </div>
 
-      {/* View all button */}
-      <div className="flex justify-center py-14 px-4">
-        <Link
-          href={mixes.button.href}
-          className="inline-flex items-center gap-2.5 px-9 py-4 text-xs font-bold tracking-[0.2em] uppercase border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-200"
-        >
-          {mixes.button.label} <span aria-hidden>›</span>
-        </Link>
-      </div>
-
+      {activeMix && (
+        <p className="sr-only" aria-live="polite">
+          {isPlaying ? `Playing ${activeMix.title}` : `${activeMix.title} paused`}
+        </p>
+      )}
     </section>
   )
 }

@@ -66,10 +66,10 @@ export type StreamingPlatform = {
 export type Mix = {
   title: string
   description: string
-  platform: 'spotify' | 'apple-music' | 'mixcloud' | 'soundcloud' | 'youtube'
   gradient: string
   image: string | null
-  href: string
+  audioSrc: string
+  duration: string
 }
 
 export type MusicRelease = {
