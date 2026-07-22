@@ -98,9 +98,25 @@ export default function Footer() {
 
         {/* Copyright line */}
         <div className="border-t border-white/5 py-5 text-center">
-          <p className="text-zinc-600 text-[10px] tracking-[0.15em] uppercase">
-            © {new Date().getFullYear()} DJ UCH. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+            <p className="text-zinc-600 text-[10px] tracking-[0.15em] uppercase">
+              © {new Date().getFullYear()} DJ UCH. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy-policy/"
+                className="text-zinc-600 hover:text-gold text-[10px] tracking-[0.15em] uppercase transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms/"
+                className="text-zinc-600 hover:text-gold text-[10px] tracking-[0.15em] uppercase transition-colors"
+              >
+                Terms
+              </Link>
+            </div>
+          </div>
         </div>
 
       </div>

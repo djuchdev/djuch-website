@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import Link from 'next/link'
 import { ChevronDownIcon, LockIcon, ClockIcon, ShieldCheckIcon } from '@/components/ui/Icons'
 import { booking } from '@/lib/content'
 
@@ -16,6 +17,7 @@ type FormState = {
   guestCount: string
   budget: string
   message: string
+  companyWebsite: string
   agreed: boolean
 }
 
@@ -23,6 +25,7 @@ const empty: FormState = {
   firstName: '', lastName: '', email: '', phone: '',
   eventType: '', eventDate: '', eventTime: '',
   location: '', guestCount: '', budget: '', message: '',
+  companyWebsite: '',
   agreed: false,
 }
 
@@ -48,11 +51,13 @@ export default function BookingForm() {
   const [errors, setErrors]   = useState<Partial<Record<keyof FormState, string>>>({})
   const [submitting, setSub]  = useState(false)
   const [submitted, setDone]  = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const formRef               = useRef<HTMLFormElement>(null)
 
   function update<K extends keyof FormState>(field: K, value: FormState[K]) {
     setForm(prev => ({ ...prev, [field]: value }))
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: undefined }))
+    if (submitError) setSubmitError('')
   }
 
   function validate(): Partial<Record<keyof FormState, string>> {
@@ -63,7 +68,7 @@ export default function BookingForm() {
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       errs.email = 'Enter a valid email'
     }
-    if (!form.agreed) errs.agreed = 'Please accept to continue'
+    if (!form.agreed) errs.agreed = 'Please agree to email and SMS follow-up'
     return errs
   }
 
@@ -77,10 +82,31 @@ export default function BookingForm() {
       return
     }
     setSub(true)
-    // Replace with real API call
-    await new Promise(r => setTimeout(r, 900))
-    setSub(false)
-    setDone(true)
+    try {
+      const response = await fetch('/.netlify/functions/booking-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          smsEmailConsent: form.agreed,
+          source: 'djuch-booking-form',
+          pageUrl: window.location.href,
+          userAgent: window.navigator.userAgent,
+          submittedAt: new Date().toISOString(),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Unable to send inquiry')
+      }
+
+      setDone(true)
+      setForm(empty)
+    } catch {
+      setSubmitError('We could not send your inquiry. Please try again or email events@uch1.com.')
+    } finally {
+      setSub(false)
+    }
   }
 
   const cls = (field: keyof FormState) =>
@@ -123,6 +149,17 @@ export default function BookingForm() {
 
       <form ref={formRef} onSubmit={handleSubmit} noValidate>
         <div className="flex flex-col gap-3">
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="companyWebsite">Company Website</label>
+            <input
+              id="companyWebsite"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.companyWebsite}
+              onChange={e => update('companyWebsite', e.target.value)}
+            />
+          </div>
 
           {/* Row 1: First Name / Last Name */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -132,6 +169,7 @@ export default function BookingForm() {
                 id="firstName"
                 type="text"
                 placeholder="First Name *"
+                name="firstName"
                 autoComplete="given-name"
                 value={form.firstName}
                 onChange={e => update('firstName', e.target.value)}
@@ -149,6 +187,7 @@ export default function BookingForm() {
                 id="lastName"
                 type="text"
                 placeholder="Last Name *"
+                name="lastName"
                 autoComplete="family-name"
                 value={form.lastName}
                 onChange={e => update('lastName', e.target.value)}
@@ -169,6 +208,7 @@ export default function BookingForm() {
               id="email"
               type="email"
               placeholder="Email Address *"
+              name="email"
               autoComplete="email"
               value={form.email}
               onChange={e => update('email', e.target.value)}
@@ -188,6 +228,7 @@ export default function BookingForm() {
               id="phone"
               type="tel"
               placeholder="Phone Number *"
+              name="phone"
               autoComplete="tel"
               value={form.phone}
               onChange={e => update('phone', e.target.value)}
@@ -206,6 +247,7 @@ export default function BookingForm() {
             <div className="relative">
               <select
                 id="eventType"
+                name="eventType"
                 value={form.eventType}
                 onChange={e => update('eventType', e.target.value)}
                 className={`${cls('eventType')} appearance-none bg-brand-black cursor-pointer`}
@@ -234,6 +276,7 @@ export default function BookingForm() {
                 id="eventDate"
                 type="text"
                 placeholder="Event Date * (DD/MM/YYYY)"
+                name="eventDate"
                 value={form.eventDate}
                 onChange={e => update('eventDate', e.target.value)}
                 className={cls('eventDate')}
@@ -250,6 +293,7 @@ export default function BookingForm() {
                 id="eventTime"
                 type="text"
                 placeholder="Preferred Start Time"
+                name="eventTime"
                 value={form.eventTime}
                 onChange={e => update('eventTime', e.target.value)}
                 className={inputBase + ' ' + inputIdle}
@@ -264,6 +308,7 @@ export default function BookingForm() {
               id="location"
               type="text"
               placeholder="Event Location *"
+              name="location"
               autoComplete="street-address"
               value={form.location}
               onChange={e => update('location', e.target.value)}
@@ -284,6 +329,7 @@ export default function BookingForm() {
                 id="guestCount"
                 type="text"
                 placeholder="Guest Count (Estimated)"
+                name="guestCount"
                 value={form.guestCount}
                 onChange={e => update('guestCount', e.target.value)}
                 className={inputBase + ' ' + inputIdle}
@@ -294,6 +340,7 @@ export default function BookingForm() {
               <div className="relative">
                 <select
                   id="budget"
+                  name="budget"
                   value={form.budget}
                   onChange={e => update('budget', e.target.value)}
                   className={`${inputBase} ${inputIdle} appearance-none bg-brand-black cursor-pointer`}
@@ -315,6 +362,7 @@ export default function BookingForm() {
             <label htmlFor="message" className="sr-only">Tell Me About Your Event</label>
             <textarea
               id="message"
+              name="message"
               placeholder="Tell Me About Your Event *  —  Share as much detail as possible so we can create the perfect experience."
               value={form.message}
               onChange={e => update('message', e.target.value)}
@@ -332,6 +380,7 @@ export default function BookingForm() {
           <div className="flex items-start gap-3 pt-1">
             <input
               id="agreed"
+              name="smsEmailConsent"
               type="checkbox"
               checked={form.agreed}
               onChange={e => update('agreed', e.target.checked)}
@@ -339,14 +388,20 @@ export default function BookingForm() {
               aria-required="true"
             />
             <label htmlFor="agreed" className="text-zinc-500 text-xs leading-relaxed cursor-pointer">
-              I agree to the{' '}
-              <span className="text-gold underline underline-offset-2">Privacy Policy</span>
+              I agree to receive email and SMS follow-up about this booking inquiry from DJ UCH. Message and data rates may apply. Reply STOP to opt out. I also agree to the{' '}
+              <Link href="/privacy-policy/" className="text-gold underline underline-offset-2">Privacy Policy</Link>
               {' '}and{' '}
-              <span className="text-gold underline underline-offset-2">Terms of Service</span>.
+              <Link href="/terms/" className="text-gold underline underline-offset-2">Terms of Service</Link>.
             </label>
           </div>
           {errors.agreed && (
             <p className="text-red-400 text-[10px] -mt-1 px-1">{errors.agreed}</p>
+          )}
+
+          {submitError && (
+            <p className="text-red-400 text-xs leading-relaxed px-1" role="alert">
+              {submitError}
+            </p>
           )}
 
           {/* Submit */}
