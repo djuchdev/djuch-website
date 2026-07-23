@@ -786,7 +786,14 @@ export const media = {
     items: [
       { title: 'Conference Keynote',  venue: 'Fortune 500 Annual Summit',   thumbnail: '/images/client-hero.png'            as string | null, gradient: 'from-violet-900/60 to-zinc-950', href: '#' },
       { title: 'Wedding Reception',   venue: 'The Grand Ballroom, NYC',     thumbnail: '/images/client-story-1.png'         as string | null, gradient: 'from-rose-900/50 to-zinc-950',   href: '#' },
-      { title: 'Lounge Experience',   venue: 'W Hotels — South Beach',      thumbnail: '/images/booking-testimonial-1.png'  as string | null, gradient: 'from-teal-900/50 to-zinc-950',   href: '#' },
+      {
+        title: 'Lounge Experience',
+        venue: 'Eclipse at W Barcelona',
+        thumbnail: '/images/video-thumbnails/lounge-experience-w-barcelona.jpg' as string | null,
+        gradient: 'from-teal-900/50 to-zinc-950',
+        href: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
+        videoSrc: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
+      },
       { title: 'Festival Stage',      venue: 'International Music Festival',thumbnail: '/images/about-connection.png'       as string | null, gradient: 'from-amber-900/60 to-zinc-950',  href: '#' },
       {
         title: 'Corporate Gala',
