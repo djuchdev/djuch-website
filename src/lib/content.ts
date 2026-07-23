@@ -217,6 +217,7 @@ export const about = {
       { name: 'FOX',      displayClass: 'font-display font-black text-2xl tracking-tight' },
       { name: 'NBC',      displayClass: 'font-display font-black text-2xl tracking-[0.12em]' },
       { name: 'ABC',      displayClass: 'font-sans text-2xl font-semibold tracking-tight' },
+      { name: 'BBC Radio 1', displayClass: 'font-sans text-xl font-bold tracking-[0.08em]' },
     ] satisfies PressOutlet[],
   },
 
