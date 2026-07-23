@@ -56,6 +56,7 @@ function CardContent({ item }: { item: PerformanceItem }) {
 export default function PerformanceGrid() {
   const { performances } = media
   const [activeVideo, setActiveVideo] = useState<PerformanceItem | null>(null)
+  const isPortraitVideo = activeVideo?.videoAspectRatio === '9 / 16'
 
   useEffect(() => {
     if (!activeVideo) return
@@ -137,7 +138,7 @@ export default function PerformanceGrid() {
           onClick={() => setActiveVideo(null)}
         >
           <div
-            className="relative w-full max-w-5xl"
+            className={`relative w-full ${isPortraitVideo ? 'max-w-[min(88vw,420px)]' : 'max-w-5xl'}`}
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -148,14 +149,17 @@ export default function PerformanceGrid() {
             >
               x
             </button>
-            <div className="relative overflow-hidden bg-black border border-white/10" style={{ aspectRatio: '16/9' }}>
+            <div
+              className="relative overflow-hidden bg-black border border-white/10"
+              style={{ aspectRatio: activeVideo.videoAspectRatio || '16 / 9' }}
+            >
               <video
                 src={activeVideo.videoSrc}
                 poster={activeVideo.thumbnail || undefined}
                 controls
                 autoPlay
                 playsInline
-                className="absolute inset-0 h-full w-full"
+                className="absolute inset-0 h-full w-full object-contain"
               />
             </div>
             <div className="mt-4">

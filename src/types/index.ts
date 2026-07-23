@@ -151,6 +151,7 @@ export type PerformanceItem = {
   gradient: string
   href: string
   videoSrc?: string
+  videoAspectRatio?: '16 / 9' | '9 / 16'
 }
 
 export type PressItem = {

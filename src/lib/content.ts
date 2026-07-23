@@ -810,7 +810,15 @@ export const media = {
         href: mediaAsset('videos/psi-seminars-gala-santa-fe.mp4'),
         videoSrc: mediaAsset('videos/psi-seminars-gala-santa-fe.mp4'),
       },
-      { title: 'Piano Session',       venue: 'Private Penthouse Event',     thumbnail: '/images/mr-martin-piano.png'        as string | null, gradient: 'from-emerald-900/50 to-zinc-950',href: '#' },
+      {
+        title: 'Piano Session',
+        venue: 'Private Penthouse Event',
+        thumbnail: '/images/video-thumbnails/piano-session.jpg' as string | null,
+        gradient: 'from-emerald-900/50 to-zinc-950',
+        href: mediaAsset('videos/piano-session.mp4'),
+        videoSrc: mediaAsset('videos/piano-session.mp4'),
+        videoAspectRatio: '9 / 16',
+      },
     ] satisfies PerformanceItem[],
   },
 
