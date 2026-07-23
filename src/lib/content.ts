@@ -971,9 +971,9 @@ export const booking = {
 
   testimonial: {
     eyebrow: 'What Clients Say',
-    quote: "A terrific week working together. The event performed beautifully, and after breakfast with the executive team, the feedback was clear: it was another fantastic time in the lounge.",
-    author: 'Arty H.',
-    title: 'Lounge Experience Client',
+    quote: "A terrific week working together, we did very well!  The feedback was clear, it was another fantastic time.",
+    author: 'Arty',
+    title: "Harrah's Lake Tahoe",
     leftImage:  '/images/booking-testimonial-2.png' as string | null,
     rightImage: '/images/booking-testimonial-1.png' as string | null,
   },
