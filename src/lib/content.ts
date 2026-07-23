@@ -791,8 +791,8 @@ export const media = {
         venue: 'Eclipse at W Barcelona',
         thumbnail: '/images/booking-testimonial-1.png' as string | null,
         gradient: 'from-teal-900/50 to-zinc-950',
-        href: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
-        videoSrc: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
+        href: mediaAsset('videos/lounge-experience-w-barcelona-v2.mp4'),
+        videoSrc: mediaAsset('videos/lounge-experience-w-barcelona-v2.mp4'),
       },
       {
         title: 'Festival Stage',
