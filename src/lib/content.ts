@@ -467,10 +467,9 @@ export const music = {
 
 export const footer = {
   socials: [
-    { label: 'Instagram', icon: 'instagram' as const, href: '#' },
-    { label: 'YouTube',   icon: 'youtube'   as const, href: '#' },
-    { label: 'Spotify',   icon: 'spotify'   as const, href: '#' },
-    { label: 'Email',     icon: 'mail'      as const, href: 'mailto:booking@djuch.com' },
+    { label: 'Instagram', icon: 'instagram' as const, href: 'https://instagram.com/djuch' },
+    { label: 'Spotify',   icon: 'spotify'   as const, href: 'https://open.spotify.com/artist/0DwWk352O9u1BN0eNJx9wT' },
+    { label: 'Email',     icon: 'mail'      as const, href: 'mailto:uchpromo@gmail.com' },
   ],
 }
 

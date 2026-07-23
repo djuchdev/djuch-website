@@ -2,14 +2,12 @@ import Link from 'next/link'
 import { nav, footer } from '@/lib/content'
 import {
   InstagramIcon,
-  YouTubeIcon,
   SpotifyIcon,
   MailIcon,
 } from '@/components/ui/Icons'
 
 const socialIconMap = {
   instagram: InstagramIcon,
-  youtube:   YouTubeIcon,
   spotify:   SpotifyIcon,
   mail:      MailIcon,
 }

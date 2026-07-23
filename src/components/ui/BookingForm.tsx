@@ -72,6 +72,37 @@ export default function BookingForm() {
     return errs
   }
 
+  async function sendNetlifyNotification(submittedAt: string) {
+    const body = new URLSearchParams({
+      'form-name': 'booking-notification',
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+      phone: form.phone,
+      eventType: form.eventType,
+      eventDate: form.eventDate,
+      eventTime: form.eventTime,
+      location: form.location,
+      guestCount: form.guestCount,
+      budget: form.budget,
+      message: form.message,
+      smsEmailConsent: form.agreed ? 'yes' : 'no',
+      source: 'djuch-booking-form',
+      pageUrl: window.location.href,
+      submittedAt,
+    })
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      })
+    } catch (error) {
+      console.error('Netlify booking notification failed', error)
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const errs = validate()
@@ -83,6 +114,7 @@ export default function BookingForm() {
     }
     setSub(true)
     try {
+      const submittedAt = new Date().toISOString()
       const response = await fetch('/.netlify/functions/booking-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -92,7 +124,7 @@ export default function BookingForm() {
           source: 'djuch-booking-form',
           pageUrl: window.location.href,
           userAgent: window.navigator.userAgent,
-          submittedAt: new Date().toISOString(),
+          submittedAt,
         }),
       })
 
@@ -100,10 +132,11 @@ export default function BookingForm() {
         throw new Error('Unable to send inquiry')
       }
 
+      await sendNetlifyNotification(submittedAt)
       setDone(true)
       setForm(empty)
     } catch {
-      setSubmitError('We could not send your inquiry. Please try again or email events@uch1.com.')
+      setSubmitError('We could not send your inquiry. Please try again or email uchpromo@gmail.com.')
     } finally {
       setSub(false)
     }
@@ -147,12 +180,22 @@ export default function BookingForm() {
         </p>
       </div>
 
-      <form ref={formRef} onSubmit={handleSubmit} noValidate>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        name="booking-notification"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="companyWebsite"
+        noValidate
+      >
+        <input type="hidden" name="form-name" value="booking-notification" />
         <div className="flex flex-col gap-3">
           <div className="hidden" aria-hidden="true">
             <label htmlFor="companyWebsite">Company Website</label>
             <input
               id="companyWebsite"
+              name="companyWebsite"
               type="text"
               tabIndex={-1}
               autoComplete="off"
