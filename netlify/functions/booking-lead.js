@@ -113,6 +113,51 @@ function buildInitialSms(lead) {
   ].join(' ')
 }
 
+function escapeHtml(value) {
+  return String(value || '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+function buildInternalEmailHtml(lead) {
+  const rows = [
+    ['Name', lead.fullName],
+    ['Email', lead.email],
+    ['Phone', lead.phone],
+    ['Experience', lead.eventType],
+    ['Event Date', lead.eventDate],
+    ['Event Time', lead.eventTime],
+    ['Location', lead.location],
+    ['Guest Count', lead.guestCount],
+    ['Budget', lead.budget],
+    ['Submitted', lead.submittedAt],
+    ['Page URL', lead.pageUrl],
+  ].filter(([, value]) => value)
+
+  return `
+    <h2>New DJ UCH booking inquiry</h2>
+    <table cellpadding="6" cellspacing="0" style="border-collapse:collapse">
+      ${rows.map(([label, value]) => `
+        <tr>
+          <td style="font-weight:bold;vertical-align:top">${escapeHtml(label)}</td>
+          <td>${escapeHtml(value)}</td>
+        </tr>
+      `).join('')}
+    </table>
+    <h3>Message</h3>
+    <p style="white-space:pre-wrap">${escapeHtml(lead.message)}</p>
+  `
+}
+
+function buildInternalEmailSubject(lead) {
+  const name = lead.fullName || 'New lead'
+  const date = lead.eventDate ? ` - ${lead.eventDate}` : ''
+  return `New DJ UCH booking inquiry: ${name}${date}`
+}
+
 async function ghlRequest(path, token, options) {
   const response = await fetch(`${ghlApiBase}${path}`, {
     ...options,
@@ -143,6 +188,46 @@ async function ghlRequest(path, token, options) {
 
 function getContactId(result) {
   return result?.contact?.id || result?.id || result?.contactId || result?.data?.id || result?.data?.contact?.id
+}
+
+async function sendInternalEmailNotice(lead, token, locationId) {
+  if (process.env.GHL_SEND_INTERNAL_EMAIL === 'false') {
+    return
+  }
+
+  const notificationEmail = process.env.GHL_NOTIFICATION_EMAIL || 'uchpromo@gmail.com'
+
+  const contactResult = await ghlRequest('/contacts/upsert', token, {
+    method: 'POST',
+    body: JSON.stringify({
+      locationId,
+      firstName: 'DJ UCH',
+      lastName: 'Booking Notices',
+      name: 'DJ UCH Booking Notices',
+      email: notificationEmail,
+      source: 'DJ UCH Website Booking Notifications',
+      tags: ['DJUCH Internal Notification'],
+      customFields: [],
+    }),
+  })
+
+  const contactId = getContactId(contactResult)
+
+  if (!contactId) {
+    throw new Error('HighLevel notification contact upsert succeeded but did not return a contact id')
+  }
+
+  await ghlRequest('/conversations/messages', token, {
+    method: 'POST',
+    body: JSON.stringify({
+      type: 'Email',
+      contactId,
+      locationId,
+      emailTo: notificationEmail,
+      subject: buildInternalEmailSubject(lead),
+      html: buildInternalEmailHtml(lead),
+    }),
+  })
 }
 
 async function sendToHighLevelApi(lead) {
@@ -195,6 +280,12 @@ async function sendToHighLevelApi(lead) {
     } catch (error) {
       console.error(error)
     }
+  }
+
+  try {
+    await sendInternalEmailNotice(lead, token, locationId)
+  } catch (error) {
+    console.error(error)
   }
 
   return true
