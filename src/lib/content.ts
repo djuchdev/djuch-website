@@ -971,9 +971,9 @@ export const booking = {
 
   testimonial: {
     eyebrow: 'What Clients Say',
-    quote: "From start to finish, Uch made our event effortless. The energy, the professionalism, the attention to detail — our guests are still talking about it.",
-    author: 'Jennifer M.',
-    title: 'Event Director, Fortune 500 Company',
+    quote: "A terrific week working together. The event performed beautifully, and after breakfast with the executive team, the feedback was clear: it was another fantastic time in the lounge.",
+    author: 'Arty H.',
+    title: 'Lounge Experience Client',
     leftImage:  '/images/booking-testimonial-2.png' as string | null,
     rightImage: '/images/booking-testimonial-1.png' as string | null,
   },
