@@ -58,7 +58,7 @@ export default function BookingTestimonial() {
           <div className="w-8 h-px bg-gold/50 mb-6" />
 
           <p className="text-gold text-[11px] font-bold tracking-[0.25em] uppercase">
-            — {testimonial.author}
+            {testimonial.author}
           </p>
           <p className="text-zinc-600 text-[10px] font-semibold tracking-[0.18em] uppercase mt-2">
             {testimonial.title}
