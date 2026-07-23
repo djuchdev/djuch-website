@@ -213,11 +213,11 @@ export const about = {
   press: {
     eyebrow: 'Featured In',
     outlets: [
-      { name: 'Page Six', displayClass: 'font-sans text-xl font-light tracking-tight' },
-      { name: 'FOX',      displayClass: 'font-display font-black text-2xl tracking-tight' },
-      { name: 'NBC',      displayClass: 'font-display font-black text-2xl tracking-[0.12em]' },
-      { name: 'ABC',      displayClass: 'font-sans text-2xl font-semibold tracking-tight' },
-      { name: 'BBC Radio 1', displayClass: 'font-sans text-xl font-bold tracking-[0.08em]' },
+      { name: 'Page Six', logo: '/images/press/page-six.png', width: 172, height: 52 },
+      { name: 'FOX', logo: '/images/press/fox.svg', width: 100, height: 44 },
+      { name: 'NBC', logo: '/images/press/nbc.svg', width: 128, height: 44 },
+      { name: 'ABC', logo: '/images/press/abc.svg', width: 78, height: 44 },
+      { name: 'BBC Radio 1', logo: '/images/press/bbc-radio-1.svg', width: 174, height: 58 },
     ] satisfies PressOutlet[],
   },
 

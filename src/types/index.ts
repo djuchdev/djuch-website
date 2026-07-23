@@ -38,7 +38,10 @@ export type JourneyStat = {
 
 export type PressOutlet = {
   name: string
-  displayClass: string
+  displayClass?: string
+  logo?: string | null
+  width?: number
+  height?: number
 }
 
 export type ClientBrand = {

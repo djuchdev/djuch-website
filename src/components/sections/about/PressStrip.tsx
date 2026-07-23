@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { about } from '@/lib/content'
 
 export default function PressStrip() {
@@ -13,15 +14,37 @@ export default function PressStrip() {
         </p>
 
         {/* Logos */}
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
-          {press.outlets.map((outlet) => (
-            <span
-              key={outlet.name}
-              className={`text-white/40 hover:text-white/75 transition-colors duration-300 select-none cursor-default ${outlet.displayClass}`}
-            >
-              {outlet.name}
-            </span>
-          ))}
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 sm:gap-x-12">
+          {press.outlets.map((outlet) => {
+            const textClass =
+              'displayClass' in outlet && outlet.displayClass
+                ? outlet.displayClass
+                : 'font-sans text-xl font-semibold tracking-tight'
+
+            return (
+              <span
+                key={outlet.name}
+                className="flex h-14 min-w-20 items-center justify-center opacity-45 grayscale transition-opacity duration-300 hover:opacity-75"
+              >
+                {outlet.logo ? (
+                  <Image
+                    src={outlet.logo}
+                    alt={outlet.name}
+                    width={outlet.width ?? 140}
+                    height={outlet.height ?? 48}
+                    className="h-auto max-h-12 w-auto object-contain"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
+                ) : (
+                  <span
+                    className={`text-white transition-colors duration-300 select-none cursor-default ${textClass}`}
+                  >
+                    {outlet.name}
+                  </span>
+                )}
+              </span>
+            )
+          })}
         </div>
 
       </div>
