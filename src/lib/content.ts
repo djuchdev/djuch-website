@@ -789,7 +789,7 @@ export const media = {
       {
         title: 'Lounge Experience',
         venue: 'Eclipse at W Barcelona',
-        thumbnail: '/images/video-thumbnails/lounge-experience-w-barcelona.jpg' as string | null,
+        thumbnail: '/images/booking-testimonial-1.png' as string | null,
         gradient: 'from-teal-900/50 to-zinc-950',
         href: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
         videoSrc: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
@@ -797,7 +797,7 @@ export const media = {
       {
         title: 'Festival Stage',
         venue: 'International Music Festival',
-        thumbnail: '/images/video-thumbnails/festival-stage.jpg' as string | null,
+        thumbnail: '/images/about-connection.png' as string | null,
         gradient: 'from-amber-900/60 to-zinc-950',
         href: mediaAsset('videos/festival-stage.mp4'),
         videoSrc: mediaAsset('videos/festival-stage.mp4'),
@@ -805,7 +805,7 @@ export const media = {
       {
         title: 'Corporate Gala',
         venue: 'PSI Seminars Gala — Santa Fe',
-        thumbnail: '/images/video-thumbnails/psi-seminars-gala-santa-fe.jpg' as string | null,
+        thumbnail: '/images/client-story-2.png' as string | null,
         gradient: 'from-indigo-900/60 to-zinc-950',
         href: mediaAsset('videos/psi-seminars-gala-santa-fe.mp4'),
         videoSrc: mediaAsset('videos/psi-seminars-gala-santa-fe.mp4'),
@@ -813,7 +813,7 @@ export const media = {
       {
         title: 'Piano Session',
         venue: 'Private Penthouse Event',
-        thumbnail: '/images/video-thumbnails/piano-session.jpg' as string | null,
+        thumbnail: '/images/mr-martin-piano.png' as string | null,
         gradient: 'from-emerald-900/50 to-zinc-950',
         href: mediaAsset('videos/piano-session.mp4'),
         videoSrc: mediaAsset('videos/piano-session.mp4'),
