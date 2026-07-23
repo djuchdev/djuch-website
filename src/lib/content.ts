@@ -794,7 +794,14 @@ export const media = {
         href: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
         videoSrc: mediaAsset('videos/lounge-experience-w-barcelona.mp4'),
       },
-      { title: 'Festival Stage',      venue: 'International Music Festival',thumbnail: '/images/about-connection.png'       as string | null, gradient: 'from-amber-900/60 to-zinc-950',  href: '#' },
+      {
+        title: 'Festival Stage',
+        venue: 'International Music Festival',
+        thumbnail: '/images/video-thumbnails/festival-stage.jpg' as string | null,
+        gradient: 'from-amber-900/60 to-zinc-950',
+        href: mediaAsset('videos/festival-stage.mp4'),
+        videoSrc: mediaAsset('videos/festival-stage.mp4'),
+      },
       {
         title: 'Corporate Gala',
         venue: 'PSI Seminars Gala — Santa Fe',
